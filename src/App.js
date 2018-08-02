@@ -4,15 +4,18 @@ import './App.css';
 import MathJax from 'react-mathjax2';
 
 import pid_img from "./img/pid.gif";
+import Contact from "./components/contact";
 // import PID from "./components/pid";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            "url": "./public/pid.gif"
+            "url": "./public/pid.gif",
         };
     }
+
+
 
     render() {
         return (
@@ -50,7 +53,7 @@ class App extends Component {
                                 <li>Orientação - Axis</li>
                             </ul>
                         </ul>
-
+                        <li>Rotina de Ajuste</li>
                         <li>Perguntas Frequêntes</li>
                         <li>Suporte Técnico</li>
                     </ul>
@@ -214,6 +217,18 @@ class App extends Component {
                             Nesta seção explicaremos como realizar o ajuste de seu módulo yawdamper para que este possa
                             extrair o máximo desempenho de sua aeronave.
                         </p>
+
+                    <ul>
+                        <li><strong><em>TODOS OS AJUSTES DEVEM SER REALIZADOS COM A AERONAVE A VELOCIDADE E ALTITUDE
+                            SEGURAS.</em></strong></li>
+                        <li><strong>AJUSTES EXTREMOS PODEM INSTABILIZAR A AERONAVE E DIFICULTAR O CONTROLE DO PILOTO.</strong></li>
+                        <li><strong>CASO A AERONAVE SE TORNE INSTAVEL, SEGURE SUA TRAJETORIA NO PEDAL, SAIA DA TELA DE
+                            CONFIGURAÇÕES UTILIZANDO A TECLA ON-OFF E ABAIXE O GANHO GERAL. EM SEGUIDA, ENTRE NA TELA
+                            DE CONFIGURAÇÕES NOVAMENTE, ABAIXE TODOS OS GANHOS, RETORNE O GANHO GERAL PARA 50% E REPITA
+                            A ROTINA DE CONFIGURAÇÃO E AJUSTE.
+                        </strong></li>
+                    </ul>
+
                     <br/>
 
                     <h3 className="title"><li>Ganho</li></h3>
@@ -235,13 +250,13 @@ class App extends Component {
                             muito lenta.
                         </p>
                         <p>
-                            Para obter o melhor desempenho de voo, considerando que os ajustes do controlador foram
-                            realizados de forma satisfatória, deve-se manter o ganho geral no maior valor possível que&nbsp;
-                            <strong>não</strong> não coloca a aeronave em regime oscilatório.
+                            Para obter o <strong>melhor desempenho</strong> de voo, considerando que os ajustes do controlador foram
+                            realizados de forma satisfatória, <strong>deve-se manter o ganho geral no maior valor possível
+                            que não coloca a aeronave em regime oscilatório</strong>.
                         </p>
                         <p>
-                            Pode-se realizar pequenos ajustes de ganho em mudanças de regime de voo. Normalmente diminui-se
-                            o ganho para velocidades elevadas e aumenta-se para velocidades moderadas.
+                            Pode-se realizar pequenos ajustes de ganho em mudanças de regime de voo. <strong>Normalmente diminui-se
+                            o ganho para velocidades elevadas e aumenta-se para velocidades moderadas</strong>.
                         </p>
                     <br/>
 
@@ -462,26 +477,104 @@ class App extends Component {
                             </table>
                         </ul>
                     <h4 className="title"><li>Fator exponencial - Power</li></h4>
+                        <p>
+                            O fator exponencial controla o comportamento quadrático na entrada do controlador,
+                            isto é, fatores exponenciais maiores fazem com que <strong>movimentações da bola perto do centro
+                            sejam atenuadas e movimentações da bola nos extremos sejam amplificadas</strong>. Um Power
+                            de zero equivale a uma resposta linear da entrada, enquanto um Power de um equivale a energia
+                            quadrática da entrada.
+                        </p>
+                        <p>
+                            O ajuste ótimo desta opção varia de acordo com as características da aeronave, e mudanças grandes
+                            neste opção requerem novo ajuste dos parâmetros do controlador PID.
+                        </p>
+                        <p>
+                            Para realizar o ajuste desta opção, <strong>primeiro tente conseguir um bom desempenho do PID com o
+                            valor de Power igual a ZERO</strong>. Caso notar que a aeronave fica <strong>instável em trajetórias
+                            retilíneas e ainda sub-atuada em curvas, aumente vagarosamente o ajuste de Power</strong> (0.05 de
+                            aumento já causa bastante mudança) e tente obter bom desempenho do PID reconfigurando-o com
+                            este novo valor. Caso a aeronave venha a apresentar muito <strong>pouca atividade com a bola
+                            perto do centro</strong> e <strong>overshoot após curvas</strong> mais fechadas, o valor
+                            de <strong>Power esta alto demais</strong> e deve ser reduzido, efetuando-se novo ajuste do
+                            PID após a redução.
+                        </p>
                     <br/>
                     <h4 className="title"><li>Ganho derivativo do Giroscópio - Gyro Gain</li></h4>
+                        <p>
+                            O ganho derivativo do giroscópio controla a proporção em que a variação na velocidade de
+                            giro da aeronave influencia na posição do compensador. Este tipo de controle é realizado com
+                            o intuito de <strong>aumentar a estabilidade da aeronave, amortecendo oscilações de calda e mudanças
+                            de proa repentinas</strong>, como as causadas por turbulências atmosféricas.
+                        </p>
+                        <p>
+                            Este ganho funciona da mesma forma que o ganho derivativo do controlador PID para o sinal de
+                            aceleração, mas tem como entrada o sinal do giroscópio. Para ajustar esta opção,
+                            configure o PID e a opção Power de forma que a aeronave apresente desempenho satisfatório tanto
+                            em trajetórias retilíneas quanto em curvas. Feito isso, aumente o ganho diferencial do
+                            giroscópio até notar que a posição do compensador começa a se tornar errática ou ruidosa,
+                            então diminua o ganho do giroscópio até que a posição do compensador deixe de apresentar
+                            ruído.
+                        </p>
+                        <p>
+                            Feito isso, teste o desempenho da aeronave em curvas. A resposta da aeronave deve ser
+                            perceptivelmente mais estável sem que resposta na entrada da curva tenha sido prejudicada (resposta muito lenta).
+                            Pode-se ainda introduzir distúrbios no sistema pelo acionamento de um dos pedais e obervar-se
+                            a resposta do compensador. Este deve mover-se de forma a combater a mudança de proa e manter
+                            a aeronave estável.
+                        </p>
                     <br/>
                     <h4 className="title"><li>Zona Morta do Giroscópio - Gyro th</li></h4>
-                    <br/>
-                    <h4 className="title"><li>Orientação - Axes</li></h4>
+                        <p>
+                            A configuração de zona morta do giroscópio serve para amenizar possível viés nas leituras
+                            do giroscópio em trajetórias retilíneas. Esta configuração deve ser mantida com o valor mais
+                            baixo possível sem que seja possível notar viés no sinal do giroscópio (fora de centro em
+                            trajetórias retas).
+                        </p>
                     <br/>
                     </ul>
                 </div>
                 <div className="App-setup">
                     <h2 className="title">Rotina de ajuste</h2>
+                    <p>
+                        Aqui será apresentada o algoritmo de ajuste completo do módulo yawdamper Atom Y001.
+                    </p>
+                    <div className="routine">
+                        <ol>
+                            <li>Em modo usuário, configurar o ganho geral e o ajuste de sensibilidade em 50%.</li>
+                            <li>Entrar em modo Power User pressionando simultaneamente as telas (-) e (+) no modo AUTOMATICO
+                                e configurar todos os ganhos do PID e giroscópio para 0.0.</li>
+                            <li>Configurar a frequencia de corte do filtro com o maior valor de forma que a bola e o bastão
+                                do giroscópio não apresentem vibrações ou atividade demasiada.</li>
+                            <li>Configurar o Gyro th de forma que o bastão do giroscópio permaneça centrado em trajetórias
+                            retas e ainda saia de centro facilmente em curvas.</li>
+                            <li>Aumentar o ganho proporciona, Kp, e realizar curvas de média inclinação até que a aeronave
+                            comece a responder de forma levemente oscilatória.</li>
+                            <li>Aumentar o ganho derivativo , Kd, até que a aeronave deixe de apresentar resposta
+                            oscilatória, sem introduzir ruído ou vibração na posição do compensador.</li>
+                            <li>Aumentar o ganho integral, Ki, até que a aeronave corrija a trajetória rapidamente na
+                            ocasião de mudança de regime, como mudança na potencia do motor ou mudanças de inclinação
+                            do nariz. A aeronave não deve apresentar tendências ou erro estático em curvas, mas também não
+                            deve apresentar overshoot na resposta a curvas fechadas.</li>
+                            <li>Caso a melhor resposta obtida nos passos anteriores ainda for instável em trajetórias
+                            retilíneas e lenta para curvas fechadas, aumentar vagarosamente o valor da opção Power e
+                            repetir os passos 2, 5, 6 e 7.</li>
+                            <li>Aumentar o valor do ganho derivativo do giroscópio até notar ruído na saída, e então
+                            voltar a baixar o valor do mesmo até o ruído desaparecer. Caso o ganho maximo não for suficiente
+                            para adicionar ruído na posição do compensador, aumentar o ganho do giroscópio até que a
+                            aeronave apresente resposta satisfatóriamente estável sem atrasar muito a resposta inicial
+                            do compensador nas curvas.</li>
+                            <li>Pressione novamente as teclas (-) e (+) simultaneamente para sair do modo Power User.</li>
+                            <li>Realizar pequenos ajustes no ganho geral com mudanças nas condições de voo e no ajuste
+                            de sensibilidade com a mudança na carga do avião.</li>
+                        </ol>
+                    </div>
                 </div>
 
                 <div className="App-faq">
                     <h2 className="title">Perguntas Frequentes</h2>
 
                 </div>
-                <div className="App-support">
-                    <h2 className="title">Suporte Técnico</h2>
-                </div>
+                <Contact />
             </div>
 
         );

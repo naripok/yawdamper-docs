@@ -1,0 +1,28 @@
+.Contact {
+    padding: 10% 15% 10% 15%;
+    background-color: #F0F0F0;
+    text-align: center;
+}
+
+.Contact form {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    /*padding: 60px 10px 10px 10px;*/
+}
+
+.Contact input {
+    padding: 10% 30% 10% 15%;
+    height: 10%;
+    width: 80%;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.Contact form textarea {
+    padding: 10% 15% 10% 15%;
+    width: 80%;
+    height: 80%;
+    font-size: 12px;
+    box-sizing: border-box;
+}
