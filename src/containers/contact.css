@@ -2,29 +2,40 @@
     padding: 10% 15% 10% 15%;
     background-color: #F0F0F0;
     text-align: center;
+    font-size: 12px;
 }
 
 .Contact form {
     width: 100%;
     margin: 0 auto;
-    /*box-sizing: border-box;*/
-    /*padding: 0% 0 0 10%;*/
-}
-
-.Contact input {
-    /*padding: 10% 30% 10% 15%;*/
-    /*height: 10%;*/
-    /*width: 80%;*/
-    font-size: 12px;
-    /*box-sizing: border-box;*/
 }
 
 .Contact form textarea {
-    /*padding: 10% 15% 10% 15%;*/
-    /*width: 80%;*/
     max-width: 100%;
     min-width: 100%;
-    height: 200%;
+    min-height: 300px;
     font-size: 12px;
     box-sizing: border-box;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .Contact {
+        padding: 10% 5% 10% 5%;
+        background-color: #F0F0F0;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .Contact form {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .Contact form textarea {
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 300px;
+        font-size: 12px;
+        box-sizing: border-box;
+    }
 }

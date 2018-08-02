@@ -70,7 +70,7 @@ export default class Contact extends Component {
             <div className="Contact">
                 <h2 className="title">Suporte Técnico</h2>
                 <p>
-                    Para informações, críticas, sugestões ou dúvidas, entrar em contato pelo formulário:
+                    Para informações, críticas, sugestões ou dúvidas, entrar em contato utilizando o formulário abaixo.
                 </p>
                     <br/>
                 <div>
