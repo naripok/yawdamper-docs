@@ -1,17 +1,23 @@
 .navbar {
     background-color: #222;
     z-index: 1;
+    padding: 0 10% 0 10%;
+    max-width: 100%;
+}
+.sup {
+    padding: 0 20% 0 10%;
 }
 
 @media only screen and (max-width: 768px) {
     .navbar {
-        padding: 0;
-    }
-    .view {
-        overflow: hidden;
+        padding: 0 10% 0 10%;
     }
 }
-
+@media (max-width: 400px) {
+    .navbar {
+        padding: 0 10% 0 10%;
+    }
+}
 
 .logo {
     animation: App-logo-spin infinite 20s linear;

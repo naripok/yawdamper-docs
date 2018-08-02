@@ -35,11 +35,12 @@ export default class NavbarFeatures extends React.Component {
         return (
             <Router>
                 <Navbar dark expand="lg" fixed="top" scrolling>
+                    <Container className="container">
                     <NavbarBrand onClick={this.props.top}>
                         <img src={logo} height="30" className="logo"/>
                     </NavbarBrand>
-                    { !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}
-                    <Collapse isOpen = { this.state.collapse } navbar>
+                    {/*{ !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}*/}
+                    {/*<Collapse isOpen = { this.state.collapse } navbar>*/}
                         <NavbarNav left>
                             <NavItem active>
                                 <NavLink to="#" onClick={this.props.top}>
@@ -48,7 +49,7 @@ export default class NavbarFeatures extends React.Component {
                             </NavItem>
                         </NavbarNav>
                         <NavbarNav right>
-                            <NavItem>
+                            <NavItem className="sup">
                                 <NavLink to="#" onClick={this.props.bot}>Suporte</NavLink>
                             </NavItem>
                             {/*<NavItem right>*/}
@@ -63,7 +64,8 @@ export default class NavbarFeatures extends React.Component {
                                 {/*</Dropdown>*/}
                             {/*</NavItem>*/}
                         </NavbarNav>
-                    </Collapse>
+                    </Container>
+                    {/*</Collapse>*/}
                 </Navbar>
             </Router>
         );
