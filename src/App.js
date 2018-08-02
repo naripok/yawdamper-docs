@@ -5,6 +5,7 @@ import MathJax from 'react-mathjax2';
 
 import pid_img from "./img/pid.gif";
 import Contact from "./containers/contact";
+import { scroller, Element, animateScroll as scroll, Events, Link } from "react-scroll";
 // import PID from "./components/pid";
 
 
@@ -16,6 +17,25 @@ class App extends Component {
         };
     }
 
+    componentDidMount() {
+        Events.scrollEvent.register('begin', function () {
+            console.log("begin", arguments);
+        });
+
+        Events.scrollEvent.register('end', function () {
+            console.log("end", arguments);
+        });
+    }
+
+    componentWillUnmount() {
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
+    }
+
+    scrollToTop = () => {
+        scroll.scrollToTop();
+    };
+
     render() {
         return (
             <div className="App">
@@ -26,46 +46,46 @@ class App extends Component {
 
                 <div className="App-summary">
                     <h2 className="title">Indice:</h2>
-                    <a name="index"/>
                     <br/>
                     <ul>
-                        <li>Introdução</li>
+                        <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="intro">Introdução</Link></li>
                         <ul>
-                            <li><a href="#ecra">Descrição do Ecrã</a></li>
-                            <li><a href="#interface">Descrição da Interface</a></li>
-                            <li><a href="#manual">Modo Manual</a></li>
+                            <li><Link activeClass="active" spy={true} smooth={true} duration={500}  to="ecra">Descrição do Ecrã</Link></li>
+                            <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="interface">Descrição da Interface</Link></li>
+                            <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="manual">Modo Manual</Link></li>
                             <ul>
-                                <li><a href="#trim">Ajuste de Trim</a></li>
-                                <li><a href="#calib">Calibração dos Sensores</a></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="trim">Ajuste de Trim</Link></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="calib">Calibração dos Sensores</Link></li>
                             </ul>
-                            <li><a href="#automatic">Modo Automatico</a></li>
-                            <li><a href="#algo">Descrição do Algoritmo</a></li>
+                            <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="automatic">Modo Automatico</Link></li>
+                            <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="algo">Descrição do Algoritmo</Link></li>
                         </ul>
-                        <li>Ajustes</li>
+                        <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="config">Ajustes</Link></li>
                         <ul>
-                            <li><a href="#user">Modo Usuário</a></li>
+                            <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="gain">Ganho</Link></li>
+                            <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="user">Modo Usuário</Link></li>
                                 <ul>
-                                    <li><a href="#sens">Ajuste de Sensibilidade</a></li>
+                                    <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="sens">Ajuste de Sensibilidade</Link></li>
                                 </ul>
-                            <li>Power User</li>
+                            <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="user">Power User</Link></li>
                             <ul>
-                                <li><a href="#cutOff">Frequência de corte - CutOff</a></li>
-                                <li><a href="#proportional">Ganho Proporcional - KP</a></li>
-                                <li><a href="#integral">Ganho Integral - KI</a></li>
-                                <li><a href="#derivative">Ganho Derivativo - KD</a></li>
-                                <li><a href="#refTable">Tabela de Referência</a></li>
-                                <li><a href="#power">Fator Exponencial - Power</a></li>
-                                <li><a href="#gyroG">Ganho derivativo do Gyroscopio - Gyro gain</a></li>
-                                <li><a href="#gyroTh">Zona morta do Gyroscopio - Gyro th</a></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="cutOff">Frequência de corte - CutOff</Link></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="proportional">Ganho Proporcional - KP</Link></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="integral">Ganho Integral - KI</Link></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="derivative">Ganho Derivativo - KD</Link></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="refTable">Tabela de Referência</Link></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="power">Fator Exponencial - Power</Link></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="gyroG">Ganho derivativo do Gyroscopio - Gyro gain</Link></li>
+                                <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="gyroTh">Zona morta do Gyroscopio - Gyro th</Link></li>
                             </ul>
                         </ul>
-                        <li><a href="#routine">Rotina de Ajuste</a></li>
-                        <li><a href="#faq">Perguntas Frequêntes</a></li>
-                        <li><a href="#contact">Suporte Técnico</a></li>
+                        <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="routine">Rotina de Ajuste</Link></li>
+                        <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="faq">Perguntas Frequêntes</Link></li>
+                        <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="contact">Suporte Técnico</Link></li>
                     </ul>
                 </div>
 
-                <div className="App-intro">
+                <Element className="App-intro" name="intro">
                     <h2 className="title">Introdução</h2>
                     <br/>
                     <p>
@@ -92,7 +112,7 @@ class App extends Component {
                     </p>
                     <br/>
 
-                    <a name="ecra"/>
+                    <Element name="ecra" className="ecra"/>
                     <h3 className="title"><li>Descrição do Ecrã</li></h3>
                     <p>
                         O ecrã de seu modulo yawdamper conta com uma bola mostrando a condição de leitura do acelerometro,
@@ -110,7 +130,7 @@ class App extends Component {
                     </p>
                     <br/>
 
-                    <a name="interface"/>
+                    <Element name="interface"/>
                     <h3 className="title"><li>Descrição da Interface</li></h3>
                     <p>
                         A interface de seu módulo yawdamper conta com três botões dedicados a controlar e alterar
@@ -123,7 +143,7 @@ class App extends Component {
                     <p className="fig-subtitle">Interface do módulo Atom Y001</p>
                     <br/>
 
-                    <a name="manual"/>
+                    <Element name="manual"/>
                     <h3 className="title"><li>Modo Manual</li></h3>
                     <p>
                         Seu módulo yawdamper inicializa no modo MANUAL. Neste modo, seu yawdamper serve como compensador
@@ -131,7 +151,7 @@ class App extends Component {
                     </p>
                     <br/>
 
-                    <a name="trim"/>
+                    <Element name="trim"/>
                     <h3 className="title"><ul><li>Ajuste de <em>Trim</em></li></ul></h3>
                     <p>
                         Pode-se ajustar a posição neutra de seu compensador de leme pela utilização das teclas + e -
@@ -142,7 +162,7 @@ class App extends Component {
                     <p className="fig-subtitle">Tela de controle no modo MANUAL.</p>
                     <br/>
 
-                    <a name="calib"/>
+                    <Element name="calib"/>
                     <h3 className="title"><ul><li>Calibração dos Sensores</li></ul></h3>
                     <p>
                         Ainda no modo MANUAL, pode-se acessar a rotina de calibração dos sensores do módulo.
@@ -161,7 +181,7 @@ class App extends Component {
                     </p>
                     <br/>
 
-                    <a name="automatic"/>
+                    <Element name="automatic"/>
                     <h3 className="title"><li>Modo Automático</li></h3>
                     <p>
                         Para acessar o modo AUTOMATICO, basta pressionar brevemente e soltar a tecla ON-OFF presente na
@@ -190,7 +210,7 @@ class App extends Component {
                     </p>
                     <br/>
 
-                    <a name="algo"/>
+                    <Element name="algo"/>
                     <h3 className="title"><ul><li>Descrição do Algoritmo</li></ul></h3>
                     <p>
                         A função de controle do algoritmo <strong>controlador PID</strong> pode ser descrita matematicamente como:
@@ -225,8 +245,8 @@ class App extends Component {
                         Cada um dos ganhos e seus efeitos na ação do módulo serão explicados mais adiante na
                         seção de ajuste.
                     </p>
-                </div>
-                <div className="App-config">
+                </Element>
+                <Element className="App-config" name="config">
                     <h2 className="title">Ajustes</h2>
                     <br/>
                         <p>
@@ -247,7 +267,7 @@ class App extends Component {
 
                     <br/>
 
-                    <a name="gain"/>
+                    <Element name="gain"/>
                     <h3 className="title"><li>Ganho</li></h3>
                         <p>
                             O ajuste de ganho esta sempre presente. Este pode ser acessado pelos botões + e - presentes na
@@ -277,7 +297,7 @@ class App extends Component {
                         </p>
                     <br/>
 
-                    <a name="user"/>
+                    <Element name="user"/>
                     <h3 className="title"><li>Modo Usuário</li></h3>
                         <p>
                             No modo usuário, apenas ajustes simples estão disponíveis. Os ajustes de&nbsp;
@@ -287,7 +307,7 @@ class App extends Component {
                     <br/>
                     <ul>
 
-                    <a name="sens"/>
+                    <Element name="sens"/>
                     <h4 className="title"><li>Ajuste de Sensibilidade</li></h4>
                         <p>
                             O ajuste de sensibilidade é utilizado para adequar o módulo a mudanças de carga da aeronave.
@@ -303,7 +323,7 @@ class App extends Component {
                     <br/>
                     </ul>
 
-                    <a name="poweruUser"/>
+                    <Element name="poweruUser"/>
                     <h3 className="title"><li>Power User</li></h3>
                         <p>
                             No modo <strong>Power User</strong>, o piloto tem acesso a configurações avançadas do modulo
@@ -322,7 +342,7 @@ class App extends Component {
                     <br/>
                     <ul>
 
-                    <a name="cutOff"/>
+                    <Element name="cutOff"/>
                     <h4 className="title"><li>Frequência de corte - CutOff</li></h4>
                         <p>
                             A frequência de corte determina o ponto de -3dB de um filtro linear em cascata de três polos.
@@ -343,7 +363,7 @@ class App extends Component {
                         </p>
                     <br/>
 
-                    <a name="pid"/>
+                    <Element name="pid"/>
                     <h3 className="title"><li>Ajuste do controlador PID</li></h3>
                         <p>
                             O controlador PID deve ser ajustado empiricamente seguindo-se uma rotina bem definida.
@@ -363,7 +383,7 @@ class App extends Component {
                         </p>
                         <br/>
 
-                        <a name="proportional"/>
+                        <Element name="proportional"/>
                         <h4 className="title"><li>Ganho Proporcional - KP</li></h4>
 
                         <MathJax.Context>
@@ -391,7 +411,7 @@ class App extends Component {
                         </p>
                         <br/>
 
-                        <a name="integral"/>
+                        <Element name="integral"/>
                         <h4 className="title"><li>Ganho Integral - KI</li></h4>
                         <MathJax.Context>
                             <div>
@@ -423,7 +443,7 @@ class App extends Component {
                         </p>
                         <br/>
 
-                        <a name="derivative"/>
+                        <Element name="derivative"/>
                         <h4 className="title"><li>Ganho Derivativo - KD</li></h4>
                         <MathJax.Context>
                             <div>
@@ -465,7 +485,7 @@ class App extends Component {
                         </p>
                         <br/>
 
-                        <a name="refTable"/>
+                        <Element name="refTable"/>
                         <h4 className="title"><li>Tabela de referência</li></h4>
                         <p>
                             Utilize a tabela de referência para consulta rápida em ocasião de ajuste.
@@ -511,7 +531,7 @@ class App extends Component {
                             </table>
                         </div>
                     <br/>
-                    <a name="power"/>
+                    <Element name="power"/>
                     <h4 className="title"><li>Fator exponencial - Power</li></h4>
                         <p>
                             O fator exponencial controla o comportamento quadrático na entrada do controlador,
@@ -536,7 +556,7 @@ class App extends Component {
                         </p>
                     <br/>
 
-                    <a name="gyroG"/>
+                    <Element name="gyroG"/>
                     <h4 className="title"><li>Ganho derivativo do Giroscópio - Gyro Gain</li></h4>
                         <p>
                             O ganho derivativo do giroscópio controla a proporção em que a variação na velocidade de
@@ -562,7 +582,7 @@ class App extends Component {
                         </p>
                     <br/>
 
-                    <a name="gyroTh"/>
+                    <Element name="gyroTh"/>
                     <h4 className="title"><li>Zona Morta do Giroscópio - Gyro th</li></h4>
                         <p>
                             A configuração de zona morta do giroscópio serve para amenizar possível viés nas leituras
@@ -572,9 +592,9 @@ class App extends Component {
                         </p>
                     <br/>
                     </ul>
-                </div>
+                </Element>
                 <div className="App-setup">
-                    <a name="routine"/>
+                    <Element name="routine"/>
                     <h2 className="title">Rotina de ajuste</h2>
                     <br/>
                     <p>
@@ -613,7 +633,7 @@ class App extends Component {
                 </div>
 
                 <div className="App-faq">
-                    <a name="faq"/>
+                    <Element name="faq"/>
                     <h2 className="title">Perguntas Frequentes</h2>
                     <br/>
                     <ul>
@@ -660,8 +680,10 @@ class App extends Component {
                         </ul>
                     </ul>
                 </div>
-                <a name="contact"/>
+                <Element name="contact"/>
                 <Contact />
+
+                <a onClick={this.scrollToTop}>To the top!</a>
             </div>
 
         );
