@@ -9,6 +9,11 @@
   scroll-behavior: smooth;
 }
 
+.brand {
+  animation: App-logo-spin infinite 20s linear;
+  height: 55px;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -17,7 +22,7 @@
 .App-header {
   background-color: #222;
   height: 20%;
-  padding: 20px;
+  padding: 10% 0 5% 0;
   color: white;
 }
 
@@ -36,6 +41,7 @@
 
 .App-summary .title {
   background-color: #F0F0F0;
+  padding: 5px 5px 5px 5px;
 }
 
 .App-intro {
@@ -49,6 +55,7 @@
 .App-intro .title {
   text-indent: 0;
   background: #DFDFDF;
+  padding: 5px 5px 5px 5px;
 }
 
 .App-config {
@@ -62,22 +69,22 @@
 .App-config .title {
   text-indent: 0;
   background: #F0F0F0;
+  padding: 5px 5px 5px 5px;
  }
 
 .App-support {
-
   background-color: #F0F0F0;
   text-align: center;
 }
 
 .App-setup {
-  padding: 10% 15% 10% 15%;
+  padding: 5% 15% 5% 15%;
   background-color: #F0F0F0;
   text-align: justify;
 }
 
 .App-faq {
-  padding: 10% 15% 10% 15%;
+  padding: 5% 15% 5% 15%;
   background-color: #DFDFDF;
 }
 
@@ -92,17 +99,17 @@
 
 .fig {
   padding: 0 10% 0 20%;
-  max-width: 200%;
-  max-height: 200%;
-  min-width: 90%;
-  min-height: 70%;
+  max-width: 150%;
+  max-height: 150%;
+  min-width: 80%;
+  min-height: 80%;
 }
 
 .fig-subtitle {
   font-size: small;
   text-align: justify;
   text-indent: 0;
-  padding: 0 20% 0 20%;
+  padding: 0 30% 0 20%;
 }
 
 .math {
@@ -112,6 +119,7 @@
 
 table, th, td {
   font-family: arial, sans-serif;
+  font-size: large;
   border-collapse: collapse;
   padding: 10px;
   text-align: center;
@@ -124,6 +132,7 @@ tr:nth-child(odd) {
 }
 
 .responsive-table {
+  font-size: large;
   overflow-x: auto;
 }
 
@@ -131,7 +140,7 @@ tr:nth-child(odd) {
   text-align: left; 
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 768px) {
   .App {
     text-align: center;
     background: #F0F0F0;
@@ -139,27 +148,34 @@ tr:nth-child(odd) {
     font-size: large;
   }
 
+  .App-header {
+    background-color: #222;
+    height: 30%;
+    padding: 20% 0 5% 0;
+    color: white;
+  }
+
   .App-intro {
-    padding: 10% 5% 10% 5%;
+    padding: 5% 5% 5% 5%;
   }
   .App-summary {
-    padding: 10% 5% 10% 5%;
+    padding: 5% 5% 5% 5%;
   }
   .App-support {
-    padding: 10% 5% 10% 5%;
+    padding: 5% 5% 5% 5%;
   }
   .App-config {
-    padding: 10% 5% 10% 5%;
+    padding: 5% 5% 5% 5%;
   }
   .App-setup {
-    padding: 10% 5% 10% 5%;
+    padding: 5% 5% 5% 5%;
   }
   .App-faq {
-    padding: 10% 5% 10% 5%;
+    padding: 5% 5% 5% 5%;
   }
 
   .fig {
-    padding: 0 0 0 0;
+    padding: 0 0 0 10%;
     align-items: center;
     max-width: 100%;
     max-height: 100%;
@@ -169,7 +185,7 @@ tr:nth-child(odd) {
     font-size: small;
     text-align: justify;
     text-indent: 0;
-    padding: 0 0 0 0;
+    padding: 0 15% 0 10%;
   }
 
   .math {
@@ -249,5 +265,22 @@ Label the data
   td:nth-of-type(4):before { content: "Tempo acomodação"; }
   td:nth-of-type(5):before { content: "Erro estático"; }
   td:nth-of-type(6):before { content: "Estabilidade"; }
+
+}
+
+@media only screen and (max-device-width: 400px) {
+  .fig {
+    padding: 0 0 0 10%;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .fig-subtitle {
+    font-size: small;
+    text-align: justify;
+    text-indent: 0;
+    padding: 0 0% 0 10%;
+  }
 
 }
