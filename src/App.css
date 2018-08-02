@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color: #F0F0F0;
+  background: #F0F0F0;
+  line-height: 200%;
 }
 
 .App-logo {
@@ -23,19 +24,54 @@
 .App-summary {
   text-align: left;
   font-size: large;
-  padding: 50px 0 0 250px;
+  padding: 100px 300px 100px 300px;
+  background-color: #DFDFDF;
 }
 
-.App-text {
+.App-summary .title {
+  background-color: #F0F0F0;
+}
+
+.App-intro {
   text-indent: 50px;
   text-align: justify;
   font-size: large;
-  padding: 50px 250px 250px 250px;
+  padding: 100px 300px 100px 300px;
+  background: #F0F0F0;
 }
 
-.title {
+.App-intro .title {
   text-indent: 0;
+  background: #DFDFDF;
+}
+
+.App-config {
+  text-indent: 50px;
+  text-align: justify;
+  font-size: large;
+  padding: 100px 250px 100px 250px;
+  background: #DFDFDF;
+}
+
+.App-config .title {
+  text-indent: 0;
+  background: #F0F0F0;
  }
+
+.App-support {
+  padding: 100px 250px 100px 250px;
+  background-color: #F0F0F0;
+}
+
+.App-setup {
+  padding: 100px 250px 100px 250px;
+  background-color: #F0F0F0;
+}
+
+.App-faq {
+  padding: 100px 250px 100px 250px;
+  background-color: #DFDFDF;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
@@ -48,9 +84,24 @@
 
 .fig-subtitle {
   font-size: small;
-  padding: 0 0 0 30%;
+  text-align: justify;
+  text-indent: 0;
+  padding: 0px 400px 0 530px;
 }
 
 .math {
   text-align: center;
+}
+
+table, th, td {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: center;
+  border-spacing: 5px;
+  border: 1px solid #FFFFFF
+}
+
+tr:nth-child(odd) {
+  background-color: #BBBBBB;
 }
