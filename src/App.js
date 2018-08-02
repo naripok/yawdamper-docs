@@ -4,8 +4,9 @@ import './App.css';
 import MathJax from 'react-mathjax2';
 
 import pid_img from "./img/pid.gif";
-import Contact from "./components/contact";
+import Contact from "./containers/contact";
 // import PID from "./components/pid";
+
 
 class App extends Component {
     constructor(props) {
@@ -14,8 +15,6 @@ class App extends Component {
             "url": "./public/pid.gif",
         };
     }
-
-
 
     render() {
         return (
@@ -27,6 +26,7 @@ class App extends Component {
 
                 <div className="App-summary">
                     <h2 className="title">Indice:</h2>
+                    <br/>
                     <ul>
                         <li>Introdução</li>
                         <ul>
@@ -61,6 +61,7 @@ class App extends Component {
 
                 <div className="App-intro">
                     <h2 className="title">Introdução</h2>
+                    <br/>
                     <p>
                         Este é o manual de ajuste referente ao módulo <strong>Yawdamper Atom Y001</strong>. Neste manual
                         explicaremos o funcionamento do módulo, bem como realizar seu ajuste para obter o melhor
@@ -213,6 +214,7 @@ class App extends Component {
                 </div>
                 <div className="App-config">
                     <h2 className="title">Ajustes</h2>
+                    <br/>
                         <p>
                             Nesta seção explicaremos como realizar o ajuste de seu módulo yawdamper para que este possa
                             extrair o máximo desempenho de sua aeronave.
@@ -325,9 +327,8 @@ class App extends Component {
                             ajuste em sua resposta.
                         </p>
                         <br/>
-                        <div>
-                            <img className="fig" src={pid_img} alt="CONTROLADOR PID" width="440px" height="330px"/>
-                        </div>
+
+                        <img className="fig" src={pid_img} alt="CONTROLADOR PID" />
 
                         {/*<PID />*/}
                         <p className="fig-subtitle">
@@ -338,110 +339,112 @@ class App extends Component {
                         </p>
                         <br/>
 
-                        <ul>
-                            <h4 className="title"><li>Ganho Proporcional - KP</li></h4>
 
-                            <MathJax.Context>
-                                <div>
-                                    O ganho proporcional se refere ao valor de <MathJax.Node inline>K_p</MathJax.Node>,
-                                    presente na equação de controle do PID. Este ganho controla a componente
-                                    proporcional ao erro que estará presente na saída do controlador. Por
-                                    exemplo, se a bola se deslocar para a direita, a posição do compensador se
-                                    deslocará de uma quantidade proporcional a este deslocamento vezes o ganho
-                                    proporcional para a esquerda, de maneira a corrigir o curso da aeronave
-                                    e retornar com a bola a sua posição central.
-                                </div>
-                            </MathJax.Context>
-                            <p>
-                                Um <strong>ganho proporcional baixo</strong> faz com que o <strong>controle na posição
-                                do compensador tenha curso reduzido</strong>, tornando a aeronave <strong>sub-atuada</strong>.
-                                Já uma configuração de <strong>ganho proporcional alta</strong> demais faz com que a
-                                aeronave sofra <strong><em>overshoot</em></strong> em sua trajetória e se
-                                torne <strong>pouco estável</strong>.
-                            </p>
-                            <p>
-                                Para obter melhor desempenho de sua aeronave, é desejável utilizar o <em>maior ganho
-                                proporcional possível sem que a aeronave se torne instável ou apresente overshoot em
-                                curvas fechadas.</em>
-                            </p>
-                            <br/>
+                        <h4 className="title"><li>Ganho Proporcional - KP</li></h4>
 
-                            <h4 className="title"><li>Ganho Integral - KI</li></h4>
-                            <MathJax.Context>
-                                <div>
-                                    O ganho integral se refere ao valor de <MathJax.Node inline>K_i</MathJax.Node>,
-                                    presente na equação de controle do PID. Este ganho controla a componente
-                                    integral do erro que estará presente na saída do controlador. Por
-                                    exemplo, se a bola se mantém <strong>posicionada a direita do centro</strong> por um
-                                    longo período de tempo, a posição do compensador se deslocará de uma quantidade&nbsp;
-                                    <strong>proporcional ao somatório do tempo que a bola passou deslocada vezes o
-                                    deslocamento durante esse tempo vezes o ganho integral para a esquerda</strong>,
-                                    de maneira a corrigir a tendência da aeronave. Esta posição passa a ser a <strong>posição
-                                    neutra</strong> do compensador, e as variações causadas pelos ganhos proporcional e
-                                    derivativo serão dadas ao redor desta. Da mesma forma, se a aeronave apresentar
-                                    tendência para a esquerda, a posição neutra do compensador se deslocará vagarosamente
-                                    para a direita proporcionalmente ao ganho integral, de forma a compensar esta
-                                    tendência.
-                                </div>
-                            </MathJax.Context>
-                            <p>
-                                <strong>Ajustes muito baixos de ganho integral</strong> fazem com que
-                                a <strong>aeronave apresente tendências</strong> e conserve <strong>erro estático nas
-                                curvas</strong>. <strong>Ajustes muito altos do ganho integral</strong>, por outro lado, fazem com que
-                                a aeronave apresente <strong>overshoot nas curvas</strong>.
-                            </p>
-                            <p>
-                               Idealmente gostaria-se de utilizar-se o <em>menor ganho integral possível sem que a aeronave
-                                    apresente tendências ou erro estático em curvas
-                                </em>.
-                            </p>
-                            <br/>
+                        <MathJax.Context>
+                            <div>
+                                O ganho proporcional se refere ao valor de <MathJax.Node inline>K_p</MathJax.Node>,
+                                presente na equação de controle do PID. Este ganho controla a componente
+                                proporcional ao erro que estará presente na saída do controlador. Por
+                                exemplo, se a bola se deslocar para a direita, a posição do compensador se
+                                deslocará de uma quantidade proporcional a este deslocamento vezes o ganho
+                                proporcional para a esquerda, de maneira a corrigir o curso da aeronave
+                                e retornar com a bola a sua posição central.
+                            </div>
+                        </MathJax.Context>
+                        <p>
+                            Um <strong>ganho proporcional baixo</strong> faz com que o <strong>controle na posição
+                            do compensador tenha curso reduzido</strong>, tornando a aeronave <strong>sub-atuada</strong>.
+                            Já uma configuração de <strong>ganho proporcional alta</strong> demais faz com que a
+                            aeronave sofra <strong><em>overshoot</em></strong> em sua trajetória e se
+                            torne <strong>pouco estável</strong>.
+                        </p>
+                        <p>
+                            Para obter melhor desempenho de sua aeronave, é desejável utilizar o <em>maior ganho
+                            proporcional possível sem que a aeronave se torne instável ou apresente overshoot em
+                            curvas fechadas.</em>
+                        </p>
+                        <br/>
 
-                            <h4 className="title"><li>Ganho Derivativo - KD</li></h4>
-                            <MathJax.Context>
-                                <div>
-                                    O ganho derivativo se refere ao valor de <MathJax.Node inline>K_d</MathJax.Node>,
-                                    presente na equação de controle do PID. Este ganho controla a componente
-                                    diferencial do erro que estará presente na saída do controlador. Por
-                                    exemplo, se a bola se deslocar de forma <strong>acelerada para a direita</strong>,
-                                    a posição do compensador se deslocará de uma quantidade&nbsp;
-                                    <strong>proporcional a aceleração vezes o ganho
-                                    derivativo para a esquerda</strong>, de maneira a corrigir desvio futuro no curso da aeronave
-                                    causado pelo aumento da velocidade de giro provocada pela aceleração atual. Da mesma
-                                    forma, se a bola sofrer uma <strong>desaceleração em sua tragetória para a direita</strong>,
-                                    a posição do compensador será <strong>deslocada para a direita</strong> refletindo
-                                    a diminuição na velocidade de giro futuro.
-                                </div>
-                            </MathJax.Context>
-                            <p>
-                                A componente derivativa serve como um "amortecedor", se opondo a variações na aceleração
-                                da tragetória da bola, ou mais especificamente, se opondo a mudanças na taxa de variação
-                                da aceleração lateral da aeronave.
-                            </p>
-                            <p>
-                                Ajustes <strong>muito baixos do ganho derivativo</strong> fazem com que <strong>a mudança
-                                na posição do compensador seja lenta</strong> em relação a mudança de aceleração lateral,
-                                e faz com que a <strong>aeronave perca a coordenação por um longo período de
-                                tempo</strong> após a atuação do aileron e do início da guinada da aeronave.
-                            </p>
-                            <p>
-                                Por outro lado, ajustes <strong>muito altos do ganho derivativo</strong> tornam
-                                a <strong>posição do compensador errática</strong> e introduzem ruído no sinal
-                                de controle do motor, <strong>fazendo-o vibrar</strong>. Esta condição
-                                é <strong>pouco desejável</strong> já que <strong>não
-                                melhora o controle da aeronave</strong> e <strong>diminúi a vida útil de seu sistema</strong>.
-                            </p>
-                            <p>
-                                Como via de regra, é desejavel trabalhar com o <em>menor ganho derivativo que torna a
-                                resposta da aeronave estável e rápida o suficiente a mudanças de estado na tragetória,
-                                sem introduzir ruído (vibração e movimentação demasiada) na posição do compensador</em>.
-                            </p>
-                            <br/>
-                            <h4 className="title"><li>Tabela de referência</li></h4>
-                            <p>
-                                Utilize a tabela de referência para consulta rápida em ocasião de ajuste.
-                            </p>
+                        <h4 className="title"><li>Ganho Integral - KI</li></h4>
+                        <MathJax.Context>
+                            <div>
+                                O ganho integral se refere ao valor de <MathJax.Node inline>K_i</MathJax.Node>,
+                                presente na equação de controle do PID. Este ganho controla a componente
+                                integral do erro que estará presente na saída do controlador. Por
+                                exemplo, se a bola se mantém <strong>posicionada a direita do centro</strong> por um
+                                longo período de tempo, a posição do compensador se deslocará de uma quantidade&nbsp;
+                                <strong>proporcional ao somatório do tempo que a bola passou deslocada vezes o
+                                deslocamento durante esse tempo vezes o ganho integral para a esquerda</strong>,
+                                de maneira a corrigir a tendência da aeronave. Esta posição passa a ser a <strong>posição
+                                neutra</strong> do compensador, e as variações causadas pelos ganhos proporcional e
+                                derivativo serão dadas ao redor desta. Da mesma forma, se a aeronave apresentar
+                                tendência para a esquerda, a posição neutra do compensador se deslocará vagarosamente
+                                para a direita proporcionalmente ao ganho integral, de forma a compensar esta
+                                tendência.
+                            </div>
+                        </MathJax.Context>
+                        <p>
+                            <strong>Ajustes muito baixos de ganho integral</strong> fazem com que
+                            a <strong>aeronave apresente tendências</strong> e conserve <strong>erro estático nas
+                            curvas</strong>. <strong>Ajustes muito altos do ganho integral</strong>, por outro lado, fazem com que
+                            a aeronave apresente <strong>overshoot nas curvas</strong>.
+                        </p>
+                        <p>
+                           Idealmente gostaria-se de utilizar-se o <em>menor ganho integral possível sem que a aeronave
+                                apresente tendências ou erro estático em curvas
+                            </em>.
+                        </p>
+                        <br/>
+
+                        <h4 className="title"><li>Ganho Derivativo - KD</li></h4>
+                        <MathJax.Context>
+                            <div>
+                                O ganho derivativo se refere ao valor de <MathJax.Node inline>K_d</MathJax.Node>,
+                                presente na equação de controle do PID. Este ganho controla a componente
+                                diferencial do erro que estará presente na saída do controlador. Por
+                                exemplo, se a bola se deslocar de forma <strong>acelerada para a direita</strong>,
+                                a posição do compensador se deslocará de uma quantidade&nbsp;
+                                <strong>proporcional a aceleração vezes o ganho
+                                derivativo para a esquerda</strong>, de maneira a corrigir desvio futuro no curso da aeronave
+                                causado pelo aumento da velocidade de giro provocada pela aceleração atual. Da mesma
+                                forma, se a bola sofrer uma <strong>desaceleração em sua tragetória para a direita</strong>,
+                                a posição do compensador será <strong>deslocada para a direita</strong> refletindo
+                                a diminuição na velocidade de giro futuro.
+                            </div>
+                        </MathJax.Context>
+                        <p>
+                            A componente derivativa serve como um "amortecedor", se opondo a variações na aceleração
+                            da tragetória da bola, ou mais especificamente, se opondo a mudanças na taxa de variação
+                            da aceleração lateral da aeronave.
+                        </p>
+                        <p>
+                            Ajustes <strong>muito baixos do ganho derivativo</strong> fazem com que <strong>a mudança
+                            na posição do compensador seja lenta</strong> em relação a mudança de aceleração lateral,
+                            e faz com que a <strong>aeronave perca a coordenação por um longo período de
+                            tempo</strong> após a atuação do aileron e do início da guinada da aeronave.
+                        </p>
+                        <p>
+                            Por outro lado, ajustes <strong>muito altos do ganho derivativo</strong> tornam
+                            a <strong>posição do compensador errática</strong> e introduzem ruído no sinal
+                            de controle do motor, <strong>fazendo-o vibrar</strong>. Esta condição
+                            é <strong>pouco desejável</strong> já que <strong>não
+                            melhora o controle da aeronave</strong> e <strong>diminúi a vida útil de seu sistema</strong>.
+                        </p>
+                        <p>
+                            Como via de regra, é desejavel trabalhar com o <em>menor ganho derivativo que torna a
+                            resposta da aeronave estável e rápida o suficiente a mudanças de estado na tragetória,
+                            sem introduzir ruído (vibração e movimentação demasiada) na posição do compensador</em>.
+                        </p>
+                        <br/>
+                        <h4 className="title"><li>Tabela de referência</li></h4>
+                        <p>
+                            Utilize a tabela de referência para consulta rápida em ocasião de ajuste.
+                        </p>
+                        <div className="responsive-table">
                             <table>
+                                <thead>
                                 <tr>
                                     <th>Parâmetro (aumento)</th>
                                     <th>Tempo de subida</th>
@@ -450,6 +453,8 @@ class App extends Component {
                                     <th>Erro estático</th>
                                     <th>Estabilidade</th>
                                 </tr>
+                                </thead>
+                                <tbody>
                                 <tr>
                                     <td>Kp</td>
                                     <td>Diminui</td>
@@ -474,8 +479,10 @@ class App extends Component {
                                     <td>Não afeta</td>
                                     <td>Melhora para Kd pequeno</td>
                                 </tr>
+                                </tbody>
                             </table>
-                        </ul>
+                        </div>
+
                     <h4 className="title"><li>Fator exponencial - Power</li></h4>
                         <p>
                             O fator exponencial controla o comportamento quadrático na entrada do controlador,
@@ -535,6 +542,7 @@ class App extends Component {
                 </div>
                 <div className="App-setup">
                     <h2 className="title">Rotina de ajuste</h2>
+                    <br/>
                     <p>
                         Aqui será apresentada o algoritmo de ajuste completo do módulo yawdamper Atom Y001.
                     </p>
@@ -572,7 +580,19 @@ class App extends Component {
 
                 <div className="App-faq">
                     <h2 className="title">Perguntas Frequentes</h2>
-
+                    <br/>
+                    <ul>
+                        <li>O módulo yawdamper Aton Y001 é apropriado para a utilização em aeronaves homologadas?</li>
+                        <ul>
+                            <li>Não, trata-se de um módulo experimental para utilização em aeronaves experimentais leves.</li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>O módulo yawdamper Aton Y001 é apropriado para a utilização em manobras acrobáticas?</li>
+                        <ul>
+                            <li>Não.</li>
+                        </ul>
+                    </ul>
                 </div>
                 <Contact />
             </div>

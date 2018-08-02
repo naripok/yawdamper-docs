@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FormGroup, FormControl } from "react-bootstrap";
+import LoaderButton from "../components/LoaderButton";
 import "./contact.css";
 
 
@@ -12,6 +13,8 @@ export default class Contact extends Component {
             name: "",
             body: "",
             subject: "",
+            formSent: false,
+            isLoading: false
         };
     }
 
@@ -21,8 +24,19 @@ export default class Contact extends Component {
         });
     };
 
-    handleSubmit(event) {
+    validateForm = () => {
+        return (
+            this.state.email.length > 0,
+            this.state.name.length > 0,
+            this.state.subject.length > 0,
+            this.state.body.length > 0
+        );
+    };
+
+    handleSubmit = event => {
         event.preventDefault();
+
+        this.setState({isLoading: true});
 
         fetch('/contactus', {
             method: 'POST',
@@ -42,11 +56,14 @@ export default class Contact extends Component {
                     this.setState({formSent: true})
                 }
                 else this.setState({formSent: false})
+
             })
-            .catch((error) => {
-                console.error(error);
+            .then(this.setState({isLoading: false}))
+            .catch((e) => {
+                console.error(e);
+                this.setState({isLoading: false});
             });
-    }
+    };
 
     render() {
         return (
@@ -60,13 +77,13 @@ export default class Contact extends Component {
                     <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
 
                         <FormGroup controlId="email" bsSize="large">
-                            <FormControl
-                                type="email"
-                                value={this.state.email}
-                                onChange={this.handleChange}
-                                className="input"
-                                placeholder="Email"
-                            />
+                                <FormControl
+                                    type="email"
+                                    value={this.state.email}
+                                    onChange={this.handleChange}
+                                    className="input"
+                                    placeholder="Email"
+                                />
                         </FormGroup>
 
                         <FormGroup controlId="name" bsSize="large">
@@ -99,7 +116,16 @@ export default class Contact extends Component {
                             />
                         </FormGroup>
 
-                        <input type="submit" value="Submit" bsSize="small"/>
+                        <LoaderButton
+                            block
+                            bsSize="large"
+                            disabled={!this.validateForm()}
+                            type="submit"
+                            isLoading={this.state.isLoading}
+                            text="Submit"
+                            loadingText="Submitting..."
+                        />
+
                     </form>
                 </div>
             </div>

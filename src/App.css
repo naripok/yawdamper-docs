@@ -1,7 +1,11 @@
 .App {
   text-align: center;
   background: #F0F0F0;
-  line-height: 200%;
+  line-height: 170%;
+  font-size: large;
+  overflow: hidden;
+  /*white-space: nowrap;*/
+  text-overflow: ellipsis;
 }
 
 .App-logo {
@@ -19,6 +23,7 @@
 .App-title {
   font-size: 2.5em;
   padding: 0px 0px 0px 0px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .App-summary {
@@ -59,13 +64,13 @@
  }
 
 .App-support {
-  padding: 5% 15% 5% 15%;
+
   background-color: #F0F0F0;
   text-align: center;
 }
 
 .App-setup {
-  padding: 5% 15% 5% 15%;
+  padding: 10% 15% 10% 15%;
   background-color: #F0F0F0;
   text-align: justify;
 }
@@ -75,24 +80,33 @@
   background-color: #DFDFDF;
 }
 
+.App-faq ul {
+  text-align: justify;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
 .fig {
-  padding: 0 0 0 35%;
+  padding: 0 10% 0 20%;
+  max-width: 200%;
+  max-height: 200%;
+  min-width: 90%;
+  min-height: 70%;
 }
 
 .fig-subtitle {
   font-size: small;
   text-align: justify;
   text-indent: 0;
-  padding: 0% 15% 0% 30%;
+  padding: 0 20% 0 20%;
 }
 
 .math {
   text-align: center;
+  max-width: 100%;
 }
 
 table, th, td {
@@ -101,13 +115,138 @@ table, th, td {
   padding: 10px;
   text-align: center;
   border-spacing: 5px;
-  border: 1px solid #FFFFFF
+  border: 1px solid #FFFFFF;
 }
 
 tr:nth-child(odd) {
   background-color: #BBBBBB;
 }
 
+.responsive-table {
+  overflow-x: auto;
+}
+
 .routine {
   text-align: left; 
+}
+
+@media only screen and (max-device-width: 480px) {
+  .App {
+    text-align: center;
+    background: #F0F0F0;
+    line-height: 200%;
+    font-size: small;
+  }
+
+  .App-intro {
+    padding: 10% 5% 10% 5%;
+  }
+  .App-summary {
+    padding: 10% 5% 10% 5%;
+  }
+  .App-support {
+    padding: 10% 5% 10% 5%;
+  }
+  .App-config {
+    padding: 10% 5% 10% 5%;
+  }
+  .App-setup {
+    padding: 10% 5% 10% 5%;
+  }
+  .App-faq {
+    padding: 10% 5% 10% 5%;
+  }
+
+  .fig {
+    padding: 0 0 0 0;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .fig-subtitle {
+    font-size: small;
+    text-align: justify;
+    text-indent: 0;
+    padding: 0 0 0 0;
+  }
+
+  .math {
+    width: 100%;
+    padding: 0;
+    overflow: auto;
+    text-overflow: ellipsis;
+    object-fit: scale-down;
+    font-size: small;
+    text-align: center;
+  }
+
+  .container {
+    width: 100%;
+    height: auto;
+    object-fit: scale-down;
+  }
+
+  .container math {
+    width: 100%;
+    height: auto;
+    object-fit: scale-down;
+    padding: 0;
+  }
+
+  .responsive-table {
+    overflow-x: auto;
+    font-size: small;
+  }
+
+  /*table, th, td {*/
+    /*font-family: arial, sans-serif;*/
+    /*border-collapse: collapse;*/
+    /*text-align: center;*/
+    /*border: 1px solid #FFFFFF;*/
+  /*}*/
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr { border: 1px solid #ccc; }
+
+  td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: -10%;
+    width: 45%;
+    padding-right: 50%;
+    white-space: nowrap;
+  }
+
+  /*
+Label the data
+*/
+  td:nth-of-type(1):before { content: "Parâmetro (+)"; }
+  td:nth-of-type(2):before { content: "Tempo Subida"; }
+  td:nth-of-type(3):before { content: "Overshoot"; }
+  td:nth-of-type(4):before { content: "Tempo acomodação"; }
+  td:nth-of-type(5):before { content: "Erro estático"; }
+  td:nth-of-type(6):before { content: "Estabilidade"; }
+
 }
