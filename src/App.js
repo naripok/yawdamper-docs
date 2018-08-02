@@ -67,7 +67,7 @@ class App extends Component {
                                 <ul>
                                     <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="sens">Ajuste de Sensibilidade</Link></li>
                                 </ul>
-                            <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="user">Power User</Link></li>
+                            <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="powerUser">Power User</Link></li>
                             <ul>
                                 <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="cutOff">Frequência de corte - CutOff</Link></li>
                                 <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="proportional">Ganho Proporcional - KP</Link></li>
@@ -323,7 +323,7 @@ class App extends Component {
                     <br/>
                     </ul>
 
-                    <Element name="poweruUser"/>
+                    <Element name="powerUser"/>
                     <h3 className="title"><li>Power User</li></h3>
                         <p>
                             No modo <strong>Power User</strong>, o piloto tem acesso a configurações avançadas do modulo
