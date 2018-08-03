@@ -124,14 +124,13 @@
   max-width: 100%;
   overflow: auto;
   text-overflow: ellipsis;
-  object-fit: scale-down;
+  object-fit: fill;
   font-size: large;
-  text-align: center;
+  text-align: center !important;
   position: relative;
   margin-left: auto;
   margin-right: auto;
   text-indent: 0;
-  display: block;
 }
 
 table, thead, tbody, th, td {
@@ -195,18 +194,11 @@ tr:nth-child(odd) {
   }
 
   .math {
-    width: 100%;
-    padding: 0;
-    overflow: auto;
-    text-overflow: ellipsis;
-    object-fit: scale-down;
-    font-size: small;
+    font-size: large !important;
+    position: center;
     text-align: center;
-    position: relative;
     margin-left: auto;
     margin-right: auto;
-    text-indent: 0;
-    display: block;
   }
 
   .container {
@@ -281,18 +273,8 @@ Label the data
     max-width: 90%;
     max-height: 90%;
   }
+
   .math {
-    width: 120%;
-    padding: 0;
-    overflow: auto;
-    text-overflow: ellipsis;
-    object-fit: fill;
-    font-size: small;
-    text-align: center;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    text-indent: 0;
-    display: block;
+    font-size: small !important;
   }
 }

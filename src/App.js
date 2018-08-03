@@ -245,16 +245,19 @@ class App extends Component {
                         <br/>
                         <p>
                             A função de controle do algoritmo <strong>controlador PID</strong> pode ser descrita matematicamente como:
+                            <br/>
                         </p>
-
-                        <br/>
-                        <MathJax.Context>
-                            <div className="math">
-                                <MathJax.Node>u(t) = G * (K_p e(t) + K_i int e(t') dt' + K_d (de(t))/(dt))</MathJax.Node>
-                            </div>
-                        </MathJax.Context>
-                        <br/>
-
+                        <div className="math">
+                            <br/>
+                            <MathJax.Context input='tex'>
+                                <div>
+                                    <MathJax.Node>
+                                        {`u(t) = G (K_p e(t) + K_i \\int e(t') dt' + K_d \\frac{d}{dt}e(t))`}
+                                    </MathJax.Node>
+                                </div>
+                            </MathJax.Context>
+                            <br/>
+                        </div>
                         <p>
                             <MathJax.Context>
                                 <div>
