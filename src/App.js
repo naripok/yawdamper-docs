@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import MathJax from 'react-mathjax2';
 
-import pid_img from "./img/pid.gif";
-import ecra from "./img/screen_5.png"
 import Contact from "./containers/contact";
 import NavBar from "./components/NavBar";
 
@@ -101,7 +99,7 @@ class App extends Component {
                             </ul>
                         </ul>
                         <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="routine">Rotina de Ajuste</Link></li>
-                        <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="faq">Perguntas Frequêntes</Link></li>
+                        <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="faq">Perguntas Frequentes</Link></li>
                         <li><Link activeClass="active" spy={true} smooth={true} duration={500} to="contact">Suporte Técnico</Link></li>
                     </ul>
                 </div>
@@ -137,7 +135,7 @@ class App extends Component {
                     <br/>
 
                     <Element name="ecra" className="ecra"/>
-                    <h3 className="title"><li>Descrição do Ecrã</li></h3>
+                    <h3 className="subtitle"><li>Descrição do Ecrã</li></h3>
                     <br/>
                     <p>
                         O ecrã de seu modulo yawdamper conta com uma bola mostrando a condição de leitura do acelerometro,
@@ -145,7 +143,10 @@ class App extends Component {
                         respectivamente.
                     </p>
                     <br/>
-                    <img className="fig" src={ecra} alt="ECRA"></img>
+                    {/*<img className="fig" src={ecra} alt="ECRA"></img>*/}
+
+                    <img className="fig" src={require("./img/screen.png")} alt="ECRA"></img>
+
                     <p className="fig-subtitle">Ecrã do módulo Atom Y001</p>
                     <br/>
                     <p>
@@ -156,7 +157,7 @@ class App extends Component {
                     <br/>
 
                     <Element name="interface"/>
-                        <h3 className="title"><li>Descrição da Interface</li></h3>
+                        <h3 className="subtitle"><li>Descrição da Interface</li></h3>
                         <br/>
                         <p>
                             A interface de seu módulo yawdamper conta com três botões dedicados a controlar e alterar
@@ -165,39 +166,39 @@ class App extends Component {
                             de seu módulo.
                         </p>
                         <br/>
-                        <img className="fig" src="img/interface.png" alt="INTERFACE"></img>
+                        <img className="fig" src={require("./img/interface.png")} alt="INTERFACE"></img>
                         <p className="fig-subtitle">Interface do módulo Atom Y001</p>
                         <br/>
 
                     <Element name="manual"/>
-                        <h3 className="title"><li>Modo Manual</li></h3>
+                        <h3 className="subtitle"><li>Modo Manual</li></h3>
                             <br/>
                             <p>
                                 Seu módulo yawdamper inicializa no modo MANUAL. Neste modo, seu yawdamper serve como compensador
                                 ajustável, assim como o presente no <em>trim</em> de profundor.
                             </p>
                             <br/>
-
-                            <Element name="trim"/>
-                            <h3 className="title"><li>Ajuste de <em>Trim</em></li></h3>
-                            <p>
-                                Pode-se ajustar a posição neutra de seu compensador de leme pela utilização das teclas + e -
-                                presentes na interface de seu módulo.
-                            </p>
-                            <br/>
-                            <img className="fig" src="img/manual.png" alt="MANUAL"></img>
+                            <img className="fig" src={require("./img/manual.png")} alt="MANUAL"></img>
                             <p className="fig-subtitle">Tela de controle no modo MANUAL.</p>
                             <br/>
 
+                            <Element name="trim"/>
+                            <h3 className="subtitle"><li>Ajuste de <em>Trim</em></li></h3>
+                            <p>
+                                Pode-se ajustar a posição neutra de seu compensador de leme pela utilização das teclas + e -
+                                presentes na interface de seu módulo. A posição do compensador é indicada pela segunda
+                                barra vertical presente no ecrã.
+                            </p>
+                            <br/>
+
                         <Element name="calib"/>
-                        <h3 className="title"><li>Calibração dos Sensores</li></h3>
+                        <h3 className="subtitle"><li>Calibração dos Sensores</li></h3>
                             <br/>
 
                             <p>
                                 Ainda no modo MANUAL, pode-se acessar a rotina de calibração dos sensores do módulo.
                             </p>
-                            <br/>
-                            <img className="fig" src="img/calibration.png" alt="CALIBRAÇAO"></img>
+                            <img className="fig" src={require("./img/calibration.png")} alt="CALIBRAÇÃO"></img>
                             <p className="fig-subtitle">Tela de calibração de sensores.</p>
                             <br/>
                             <p>
@@ -212,13 +213,13 @@ class App extends Component {
 
                     <Element name="automatic"/>
                         <br/>
-                        <h3 className="title"><li>Modo Automático</li></h3>
+                        <h3 className="subtitle"><li>Modo Automático</li></h3>
                         <p>
                             Para acessar o modo AUTOMATICO, basta pressionar brevemente e soltar a tecla ON-OFF presente na
                             interface do módulo.
                         </p>
                         <br/>
-                        <img className="fig" src="img/automatic.png" alt="AUTOMATICO"></img>
+                        <img className="fig" src={require("./img/automatic.png")} alt="AUTOMATICO"></img>
                         <p className="fig-subtitle">Tela de controle no modo AUTOMATICO.</p>
                         <br/>
                         <p>
@@ -241,7 +242,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="algo"/>
-                    <h3 className="title"><li>Descrição do Algoritmo</li></h3>
+                    <h3 className="subtitle"><li>Descrição do Algoritmo</li></h3>
                         <br/>
                         <p>
                             A função de controle do algoritmo <strong>controlador PID</strong> pode ser descrita matematicamente como:
@@ -308,17 +309,14 @@ class App extends Component {
                         <br/>
 
                     <Element name="gain"/>
-                    <h3 className="title"><li>Ganho</li></h3>
+                    <h3 className="subtitle"><li>Ganho</li></h3>
                         <br/>
                         <p>
                                 O ajuste de ganho esta sempre presente. Este pode ser acessado pelos botões + e - presentes na
                                 interface de seu módulo.
                             </p>
-                        <br/>
-                        <br/>
-                        <img className="fig" src="img/gain.png" alt="GANHO"></img>
+                        <img className="fig" src={require("./img/gain.png")} alt="GANHO"></img>
                         <p className="fig-subtitle">Barra indicativa de ganho.</p>
-                        <br/>
                         <br/>
                             <p>
                                 Este ajuste é destinado a compensação nas condições de voo, como mudança de velocidade de
@@ -339,7 +337,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="user"/>
-                    <h3 className="title"><li>Modo Usuário</li></h3>
+                    <h3 className="subtitle"><li>Modo Usuário</li></h3>
                         <br/>
                         <p>
                                 No modo usuário, apenas ajustes simples estão disponíveis. Os ajustes de&nbsp;
@@ -349,7 +347,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="sens"/>
-                    <h3 className="title"><li>Ajuste de Sensibilidade</li></h3>
+                    <h3 className="subtitle"><li>Ajuste de Sensibilidade</li></h3>
                         <br/>
                         <p>
                             O ajuste de sensibilidade é utilizado para adequar o módulo a mudanças de carga da aeronave.
@@ -365,7 +363,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="powerUser"/>
-                    <h3 className="title"><li>Power User</li></h3>
+                    <h3 className="subtitle"><li>Power User</li></h3>
                         <br/>
                         <p>
                             No modo <strong>Power User</strong>, o piloto tem acesso a configurações avançadas do modulo
@@ -384,7 +382,7 @@ class App extends Component {
                     <br/>
 
                     <Element name="cutOff"/>
-                    <h3 className="title"><li>Frequência de corte - CutOff</li></h3>
+                    <h3 className="subtitle"><li>Frequência de corte - CutOff</li></h3>
                         <br/>
                         <p>
                             A frequência de corte determina o ponto de -3dB de um filtro linear em cascata de três polos.
@@ -406,7 +404,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="pid"/>
-                    <h3 className="title"><li>Ajuste do controlador PID</li></h3>
+                    <h3 className="subtitle"><li>Ajuste do controlador PID</li></h3>
                         <br/>
                         <p>
                             O controlador PID deve ser ajustado empiricamente seguindo-se uma rotina bem definida.
@@ -415,7 +413,7 @@ class App extends Component {
                         </p>
                         <br/>
                         <div>
-                        <img className="fig" src={pid_img} alt="CONTROLADOR PID" />
+                        <img className="fig" src={require("./img/pid.gif")} alt="CONTROLADOR PID" />
                         </div>
                         {/*<PID />*/}
                         <p className="fig-subtitle">
@@ -427,7 +425,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="proportional"/>
-                    <h3 className="title"><li>Ganho Proporcional - KP</li></h3>
+                    <h3 className="subtitle"><li>Ganho Proporcional - KP</li></h3>
                         <br/>
                         <MathJax.Context>
                             <div>
@@ -455,7 +453,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="integral"/>
-                    <h3 className="title"><li>Ganho Integral - KI</li></h3>
+                    <h3 className="subtitle"><li>Ganho Integral - KI</li></h3>
                         <br/>
                         <MathJax.Context>
                             <div>
@@ -488,7 +486,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="derivative"/>
-                    <h3 className="title"><li>Ganho Derivativo - KD</li></h3>
+                    <h3 className="subtitle"><li>Ganho Derivativo - KD</li></h3>
                         <br/>
                         <MathJax.Context>
                             <div>
@@ -531,7 +529,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="refTable"/>
-                    <h3 className="title"><li>Tabela de referência</li></h3>
+                    <h3 className="subtitle"><li>Tabela de referência</li></h3>
                         <br/>
                         <p>
                             Utilize a tabela de referência para consulta rápida em ocasião de ajuste.
@@ -578,7 +576,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="power"/>
-                    <h3 className="title"><li>Fator exponencial - Power</li></h3>
+                    <h3 className="subtitle"><li>Fator exponencial - Power</li></h3>
                         <br/>
                         <p>
                             O fator exponencial controla o comportamento quadrático na entrada do controlador,
@@ -604,7 +602,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="gyroG"/>
-                    <h3 className="title"><li>Ganho derivativo do Giroscópio - Gyro Gain</li></h3>
+                    <h3 className="subtitle"><li>Ganho derivativo do Giroscópio - Gyro Gain</li></h3>
                         <br/>
                         <p>
                             O ganho derivativo do giroscópio controla a proporção em que a variação na velocidade de
@@ -631,7 +629,7 @@ class App extends Component {
                         <br/>
 
                     <Element name="gyroTh"/>
-                    <h3 className="title"><li>Zona Morta do Giroscópio - Gyro th</li></h3>
+                    <h3 className="subtitle"><li>Zona Morta do Giroscópio - Gyro th</li></h3>
                         <br/>
                         <p>
                             A configuração de zona morta do giroscópio serve para amenizar possível viés nas leituras
@@ -651,32 +649,44 @@ class App extends Component {
                         </p>
                         <div className="routine">
                             <ol>
+                                <br/>
                                 <li>Em modo usuário, configurar o ganho geral e o ajuste de sensibilidade em 50%.</li>
+                                <br/>
                                 <li>Entrar em modo Power User pressionando simultaneamente as telas (-) e (+) no modo AUTOMATICO
                                     e configurar todos os ganhos do PID e giroscópio para 0.0.</li>
+                                <br/>
                                 <li>Configurar a frequencia de corte do filtro com o maior valor de forma que a bola e o bastão
                                     do giroscópio não apresentem vibrações ou atividade demasiada.</li>
+                                <br/>
                                 <li>Configurar o Gyro th de forma que o bastão do giroscópio permaneça centrado em trajetórias
                                 retas e ainda saia de centro facilmente em curvas.</li>
+                                <br/>
                                 <li>Aumentar o ganho proporciona, Kp, e realizar curvas de média inclinação até que a aeronave
                                 comece a responder de forma levemente oscilatória.</li>
+                                <br/>
                                 <li>Aumentar o ganho derivativo , Kd, até que a aeronave deixe de apresentar resposta
                                 oscilatória, sem introduzir ruído ou vibração na posição do compensador.</li>
+                                <br/>
                                 <li>Aumentar o ganho integral, Ki, até que a aeronave corrija a trajetória rapidamente na
                                 ocasião de mudança de regime, como mudança na potencia do motor ou mudanças de inclinação
                                 do nariz. A aeronave não deve apresentar tendências ou erro estático em curvas, mas também não
                                 deve apresentar overshoot na resposta a curvas fechadas.</li>
+                                <br/>
                                 <li>Caso a melhor resposta obtida nos passos anteriores ainda for instável em trajetórias
                                 retilíneas e lenta para curvas fechadas, aumentar vagarosamente o valor da opção Power e
                                 repetir os passos 2, 5, 6 e 7.</li>
+                                <br/>
                                 <li>Aumentar o valor do ganho derivativo do giroscópio até notar ruído na saída, e então
                                 voltar a baixar o valor do mesmo até o ruído desaparecer. Caso o ganho maximo não for suficiente
                                 para adicionar ruído na posição do compensador, aumentar o ganho do giroscópio até que a
                                 aeronave apresente resposta satisfatóriamente estável sem atrasar muito a resposta inicial
                                 do compensador nas curvas.</li>
+                                <br/>
                                 <li>Pressione novamente as teclas (-) e (+) simultaneamente para sair do modo Power User.</li>
+                                <br/>
                                 <li>Realizar pequenos ajustes no ganho geral com mudanças nas condições de voo e no ajuste
                                 de sensibilidade com a mudança na carga do avião.</li>
+                                <br/>
                             </ol>
                         </div>
                 </Element>
@@ -686,23 +696,26 @@ class App extends Component {
                     <h1 className="title">Perguntas Frequentes</h1>
                         <br/>
                         <ul>
-                            <li>O módulo yawdamper Aton Y001 é apropriado para a utilização em aeronaves homologadas?</li>
+                            <li>O módulo yawdamper Atom Y001 é apropriado para a utilização em aeronaves homologadas?</li>
                             <ul>
                                 <li>Não, trata-se de um módulo experimental para utilização em aeronaves experimentais leves.</li>
                             </ul>
                         </ul>
+                        <br/>
                         <ul>
-                            <li>O módulo yawdamper Aton Y001 é apropriado para a utilização em manobras acrobáticas?</li>
+                            <li>O módulo yawdamper Atom Y001 é apropriado para a utilização em manobras acrobáticas?</li>
                             <ul>
                                 <li>Não.</li>
                             </ul>
                         </ul>
+                        <br/>
                         <ul>
                             <li>A minha posição do compensador apresenta vibrações no modo AUTOMATICO. Como corrigir?</li>
                             <ul>
                                 <li>Realizar rotina de ajuste no dispositivo.</li>
                             </ul>
                         </ul>
+                        <br/>
                         <ul>
                             <li>Meu dispositivo não salva mais os valores das configurações. Como corrigir?</li>
                             <ul>
@@ -711,6 +724,7 @@ class App extends Component {
                                 controlador. Entrar em contato com o suporte tecnico.</li>
                             </ul>
                         </ul>
+                        <br/>
                         <ul>
                             <li>Meu módulo yawdamper liga mas o servo motor não responde. Como corrigir?</li>
                             <ul>
@@ -720,6 +734,7 @@ class App extends Component {
                                 Entrar em contato com suporte técnico para substituição.</li>
                             </ul>
                         </ul>
+                        <br/>
                         <ul>
                             <li>O indicador de posição do compensador no ecrã do módulo se encontra estável, porém o servo
                             motor se comporta de maneira errática. Como corrigir?</li>

@@ -69,6 +69,7 @@ export default class Contact extends Component {
         return (
             <div className="Contact">
                 <h1 className="title">Suporte Técnico</h1>
+                <br/>
                 <p>
                     Para informações, críticas, sugestões ou dúvidas, entrar em contato utilizando o formulário abaixo.
                 </p>

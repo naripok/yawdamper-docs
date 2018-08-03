@@ -2,7 +2,11 @@
     padding: 6% 15% 6% 15%;
     background-color: #F0F0F0;
     text-align: center;
-    font-size: 12px;
+    font-size: large;
+}
+
+.Contact title {
+    font-size: xx-large;
 }
 
 .Contact form {
@@ -14,7 +18,7 @@
     max-width: 100%;
     min-width: 100%;
     min-height: 100px;
-    font-size: 12px;
+    font-size: large;
     box-sizing: border-box;
 }
 
@@ -23,7 +27,7 @@
         padding: 10% 5% 10% 5%;
         background-color: #F0F0F0;
         text-align: center;
-        font-size: 12px;
+        font-size: large;
     }
 
     .Contact form {
@@ -35,7 +39,7 @@
         max-width: 100%;
         min-width: 100%;
         min-height: 100px;
-        font-size: 12px;
+        font-size: large;
         box-sizing: border-box;
     }
 }

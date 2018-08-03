@@ -4,7 +4,6 @@
   line-height: 170%;
   font-size: large;
   overflow: hidden;
-  /*white-space: nowrap;*/
   text-overflow: ellipsis;
   scroll-behavior: smooth;
 }
@@ -12,6 +11,22 @@
 .brand {
   animation: App-logo-spin infinite 20s linear;
   height: 55px;
+}
+
+.title {
+  text-indent: 0;
+  padding: 5px 5px 5px 5px;
+  font-weight: normal;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.subtitle {
+  text-indent: 0;
+  background: #F0F0F0;
+  padding: 5px 5px 5px 5px;
+  font-size: 1.2em;
+  font-weight: normal;
 }
 
 .App-logo {
@@ -30,6 +45,7 @@
   font-size: 2.5em;
   padding: 0px 0px 0px 0px;
   font-family: "Open Sans", sans-serif;
+  font-weight: normal;
 }
 
 .App-summary {
@@ -41,7 +57,6 @@
 
 .App-summary .title {
   background-color: #F0F0F0;
-  padding: 5px 5px 5px 5px;
 }
 
 .App-intro {
@@ -53,9 +68,11 @@
 }
 
 .App-intro .title {
-  text-indent: 0;
   background: #DFDFDF;
-  padding: 5px 5px 5px 5px;
+}
+
+.App-intro .subtitle {
+  background: #DFDFDF;
 }
 
 .App-config {
@@ -67,10 +84,8 @@
 }
 
 .App-config .title {
-  text-indent: 0;
   background: #F0F0F0;
-  padding: 5px 5px 5px 5px;
- }
+}
 
 .App-support {
   background-color: #F0F0F0;
@@ -81,6 +96,13 @@
   padding: 5% 15% 5% 15%;
   background-color: #F0F0F0;
   text-align: justify;
+  line-height: 170%;
+}
+
+.App-setup .title {
+  background-color: #F0F0F0;
+  text-align: center;
+  font-weight: normal;
 }
 
 .App-faq {
@@ -98,9 +120,7 @@
 }
 
 .fig {
-  /*padding: 0 10% 0 10%;*/
-  min-width: 60%;
-  min-height: 60%;
+  max-width: 100%;
   text-indent: 0;
   text-align: center;
   position: relative;
@@ -136,11 +156,7 @@
 table, thead, tbody, th, td {
   font-family: arial, sans-serif;
   font-size: small !important;
-  /*border-collapse: collapse;*/
-  /*padding: 10px;*/
   text-align: center;
-  /*border-spacing: 5px;*/
-  /*border: 1px solid #FFFFFF;*/
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -172,6 +188,7 @@ tr:nth-child(odd) {
     height: 30%;
     padding: 20% 0 5% 0;
     color: white;
+    font-size: small;
   }
 
   .App-intro {
