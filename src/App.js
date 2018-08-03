@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 import MathJax from 'react-mathjax2';
 
 import pid_img from "./img/pid.gif";
+import ecra from "./img/screen_5.png"
 import Contact from "./containers/contact";
 import NavBar from "./components/NavBar";
 
-
+import { Table } from "mdbreact";
 import { Element, animateScroll as scroll, Events, Link } from "react-scroll";
+
 // import PID from "./components/pid";
 
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import './App.css';
 
 
 class App extends Component {
@@ -114,6 +116,7 @@ class App extends Component {
                         explicaremos o funcionamento do módulo e como realizar seu ajuste para obter o melhor
                         desempenho possível em sua aeronave.
                     </p>
+                    <br/>
                     <img className="fig" src="img/module.png" alt="YAWDAMPER ATOM Y001"></img>
                     <p className="fig-subtitle">Yawdamper Atom Y001</p>
                     <br/>
@@ -142,11 +145,11 @@ class App extends Component {
                         respectivamente.
                     </p>
                     <br/>
-                    <img className="fig" src="img/screen.png" alt="ECRA"></img>
+                    <img className="fig" src={ecra} alt="ECRA"></img>
                     <p className="fig-subtitle">Ecrã do módulo Atom Y001</p>
                     <br/>
                     <p>
-                        Este ainda trás indicador de modo ON-OFF, indicador de atividade (X),
+                        Este ainda conta com indicador de modo ON-OFF, indicador de atividade (X),
                         tempo desde o ligamento (TON) e bastões laterais indicando os limites de curso dos sensores e
                         compensador, estes visíveis apenas com o módulo no modo AUTOMATICO.
                     </p>
@@ -242,14 +245,17 @@ class App extends Component {
                         <br/>
                         <p>
                             A função de controle do algoritmo <strong>controlador PID</strong> pode ser descrita matematicamente como:
-                            <br/>
-                            <br/>
-                            <MathJax.Context>
-                                <div className="math">
-                                    <MathJax.Node>u(t) = G * (K_p e(t) + K_i int e(t') dt' + K_d (de(t))/(dt))</MathJax.Node>
-                                </div>
-                            </MathJax.Context>
-                            <br/>
+                        </p>
+
+                        <br/>
+                        <MathJax.Context>
+                            <div className="math">
+                                <MathJax.Node>u(t) = G * (K_p e(t) + K_i int e(t') dt' + K_d (de(t))/(dt))</MathJax.Node>
+                            </div>
+                        </MathJax.Context>
+                        <br/>
+
+                        <p>
                             <MathJax.Context>
                                 <div>
                                     Sendo <MathJax.Node inline>K_p</MathJax.Node>,&nbsp;
@@ -405,9 +411,9 @@ class App extends Component {
                             ajuste em sua resposta.
                         </p>
                         <br/>
-
+                        <div>
                         <img className="fig" src={pid_img} alt="CONTROLADOR PID" />
-
+                        </div>
                         {/*<PID />*/}
                         <p className="fig-subtitle">
                             Resposta do sistema a alterações nos ganhos Kp, Ki e Kd. Aqui, 1 representa a posição
@@ -527,16 +533,15 @@ class App extends Component {
                         <p>
                             Utilize a tabela de referência para consulta rápida em ocasião de ajuste.
                         </p>
-                        <div className="responsive-table">
-                            <table className="responsive-table">
-                                <thead>
+                            <Table bsClass="table">
+                                <thead className="thead-dark">
                                 <tr>
-                                    <th>Parâmetro (aumento)</th>
-                                    <th>Tempo de subida</th>
-                                    <th>Overshoot</th>
-                                    <th>Tempo de acomodação</th>
-                                    <th>Erro estático</th>
-                                    <th>Estabilidade</th>
+                                    <th scope="col">Parâmetro (aumento)</th>
+                                    <th scope="col">Tempo de subida</th>
+                                    <th scope="col">Overshoot</th>
+                                    <th scope="col">Tempo de acomodação</th>
+                                    <th scope="col">Erro estático</th>
+                                    <th scope="col">Estabilidade</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -565,8 +570,7 @@ class App extends Component {
                                     <td>Melhora para Kd pequeno</td>
                                 </tr>
                                 </tbody>
-                            </table>
-                        </div>
+                            </Table>
                         <br/>
 
                     <Element name="power"/>

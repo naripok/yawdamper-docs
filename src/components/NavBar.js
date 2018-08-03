@@ -1,11 +1,9 @@
 import React from 'react';
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle,
-    DropdownMenu, DropdownItem, Container } from 'mdbreact';
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, Container } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import logo from '../logo.svg';
 import "./NavBar.css"
 
-import { Element, animateScroll as scroll, Events, Link } from "react-scroll";
 
 export default class NavbarFeatures extends React.Component {
     constructor(props) {
@@ -37,7 +35,7 @@ export default class NavbarFeatures extends React.Component {
                 <Navbar dark expand="lg" fixed="top" scrolling>
                     <Container className="container">
                     <NavbarBrand onClick={this.props.top}>
-                        <img src={logo} height="30" className="logo"/>
+                        <img src={logo} alt="ATOM" height="30" className="logo"/>
                     </NavbarBrand>
                     {/*{ !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}*/}
                     {/*<Collapse isOpen = { this.state.collapse } navbar>*/}

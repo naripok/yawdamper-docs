@@ -98,42 +98,62 @@
 }
 
 .fig {
-  padding: 0 10% 0 20%;
-  max-width: 150%;
-  max-height: 150%;
-  min-width: 80%;
-  min-height: 80%;
+  /*padding: 0 10% 0 10%;*/
+  min-width: 60%;
+  min-height: 60%;
+  text-indent: 0;
+  text-align: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  object-fit: fill;
 }
 
 .fig-subtitle {
   font-size: small;
-  text-align: justify;
+  text-align: center;
   text-indent: 0;
-  padding: 0 30% 0 20%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 .math {
-  text-align: center;
   max-width: 100%;
+  overflow: auto;
+  text-overflow: ellipsis;
+  object-fit: scale-down;
+  font-size: large;
+  text-align: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-indent: 0;
+  display: block;
 }
 
-table, th, td {
+table, thead, tbody, th, td {
   font-family: arial, sans-serif;
-  font-size: large;
-  border-collapse: collapse;
-  padding: 10px;
+  font-size: small !important;
+  /*border-collapse: collapse;*/
+  /*padding: 10px;*/
   text-align: center;
-  border-spacing: 5px;
-  border: 1px solid #FFFFFF;
+  /*border-spacing: 5px;*/
+  /*border: 1px solid #FFFFFF;*/
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 tr:nth-child(odd) {
-  background-color: #BBBBBB;
+  background-color: #CCCCCC;
 }
 
 .responsive-table {
-  font-size: large;
   overflow-x: auto;
+  font-size: large;
 }
 
 .routine {
@@ -174,20 +194,6 @@ tr:nth-child(odd) {
     padding: 5% 5% 5% 5%;
   }
 
-  .fig {
-    padding: 0 0 0 10%;
-    align-items: center;
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-  .fig-subtitle {
-    font-size: small;
-    text-align: justify;
-    text-indent: 0;
-    padding: 0 15% 0 10%;
-  }
-
   .math {
     width: 100%;
     padding: 0;
@@ -196,32 +202,30 @@ tr:nth-child(odd) {
     object-fit: scale-down;
     font-size: small;
     text-align: center;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-indent: 0;
+    display: block;
   }
 
   .container {
     width: 100%;
     height: auto;
-    object-fit: scale-down;
+    object-fit: fill;
   }
 
   .container math {
     width: 100%;
     height: auto;
-    object-fit: scale-down;
+    object-fit: fill;
     padding: 0;
   }
 
-  .responsive-table {
-    overflow-x: auto;
-    font-size: small;
+  .fig {
+    max-width: 90%;
+    max-height: 90%;
   }
-
-  /*table, th, td {*/
-    /*font-family: arial, sans-serif;*/
-    /*border-collapse: collapse;*/
-    /*text-align: center;*/
-    /*border: 1px solid #FFFFFF;*/
-  /*}*/
 
   /* Force table to not be like tables anymore */
   table, thead, tbody, th, td, tr {
@@ -235,14 +239,18 @@ tr:nth-child(odd) {
     left: -9999px;
   }
 
-  tr { border: 1px solid #ccc; }
+  tr {
+    border: 1px solid #ccc;
+  }
 
   td {
     /* Behave  like a "row" */
-    border: none;
-    border-bottom: 1px solid #eee;
+    /*border: none;*/
+    /*border-bottom: 1px solid #eee;*/
     position: relative;
-    padding-left: 50%;
+    padding-right: 50%;
+    text-align: center;
+    text-indent: 60%;
   }
 
   td:before {
@@ -250,9 +258,9 @@ tr:nth-child(odd) {
     position: absolute;
     /* Top/left values mimic padding */
     top: 6px;
-    left: -10%;
+    left: -50%;
     width: 45%;
-    padding-right: 50%;
+    padding-right: 60%;
     white-space: nowrap;
   }
 
@@ -270,17 +278,21 @@ Label the data
 
 @media only screen and (max-device-width: 400px) {
   .fig {
-    padding: 0 0 0 10%;
-    align-items: center;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90%;
+    max-height: 90%;
   }
-
-  .fig-subtitle {
+  .math {
+    width: 120%;
+    padding: 0;
+    overflow: auto;
+    text-overflow: ellipsis;
+    object-fit: fill;
     font-size: small;
-    text-align: justify;
+    text-align: center;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
     text-indent: 0;
-    padding: 0 0% 0 10%;
+    display: block;
   }
-
 }
