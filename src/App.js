@@ -533,44 +533,45 @@ class App extends Component {
                         <p>
                             Utilize a tabela de referência para consulta rápida em ocasião de ajuste.
                         </p>
-                            <Table bsClass="table">
-                                <thead className="thead-dark">
-                                <tr>
-                                    <th scope="col">Parâmetro (aumento)</th>
-                                    <th scope="col">Tempo de subida</th>
-                                    <th scope="col">Overshoot</th>
-                                    <th scope="col">Tempo de acomodação</th>
-                                    <th scope="col">Erro estático</th>
-                                    <th scope="col">Estabilidade</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Kp</td>
-                                    <td>Diminui</td>
-                                    <td>Aumenta</td>
-                                    <td>Aumenta</td>
-                                    <td>Diminui</td>
-                                    <td>Degrada</td>
-                                </tr>
-                                <tr>
-                                    <td>Ki</td>
-                                    <td>Diminui</td>
-                                    <td>Aumenta</td>
-                                    <td>Aumenta</td>
-                                    <td>Diminui</td>
-                                    <td>Degrada</td>
-                                </tr>
-                                <tr>
-                                    <td>Kd</td>
-                                    <td>Diminui</td>
-                                    <td>Diminui</td>
-                                    <td>Diminui</td>
-                                    <td>Não afeta</td>
-                                    <td>Melhora para Kd pequeno</td>
-                                </tr>
-                                </tbody>
-                            </Table>
+                        <br/>
+                        <Table bsClass="table">
+                            <thead className="thead-dark">
+                            <tr>
+                                <th scope="col">Parâmetro (aumento)</th>
+                                <th scope="col">Tempo de subida</th>
+                                <th scope="col">Overshoot</th>
+                                <th scope="col">Tempo de acomodação</th>
+                                <th scope="col">Erro estático</th>
+                                <th scope="col">Estabilidade</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Kp</td>
+                                <td>Diminui</td>
+                                <td>Aumenta</td>
+                                <td>Aumenta</td>
+                                <td>Diminui</td>
+                                <td>Degrada</td>
+                            </tr>
+                            <tr>
+                                <td>Ki</td>
+                                <td>Diminui</td>
+                                <td>Aumenta</td>
+                                <td>Aumenta</td>
+                                <td>Diminui</td>
+                                <td>Degrada</td>
+                            </tr>
+                            <tr>
+                                <td>Kd</td>
+                                <td>Diminui</td>
+                                <td>Diminui</td>
+                                <td>Diminui</td>
+                                <td>Não afeta</td>
+                                <td>Melhora para Kd pequeno</td>
+                            </tr>
+                            </tbody>
+                        </Table>
                         <br/>
 
                     <Element name="power"/>

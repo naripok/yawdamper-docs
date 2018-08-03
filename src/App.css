@@ -250,7 +250,7 @@ tr:nth-child(odd) {
     position: relative;
     padding-right: 50%;
     text-align: center;
-    text-indent: 60%;
+    text-indent: 40%;
   }
 
   td:before {
@@ -258,7 +258,7 @@ tr:nth-child(odd) {
     position: absolute;
     /* Top/left values mimic padding */
     top: 6px;
-    left: -50%;
+    left: -30%;
     width: 45%;
     padding-right: 60%;
     white-space: nowrap;
