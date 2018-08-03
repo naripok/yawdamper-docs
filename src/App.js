@@ -112,14 +112,14 @@ class App extends Component {
                     <p>
                         Este é o manual de ajuste referente ao módulo <strong>Yawdamper Atom Y001</strong>. Neste manual
                         explicaremos o funcionamento do módulo e como realizar seu ajuste para obter o melhor
-                        desempenho possível em sua aeronave.
+                        desempenho possível de sua aeronave.
                     </p>
                     <br/>
                     <img className="fig" src="img/module.png" alt="YAWDAMPER ATOM Y001"></img>
                     <p className="fig-subtitle">Yawdamper Atom Y001</p>
                     <br/>
                     <p>
-                        O módulo Yawdamper Atom Y001 conta com três acelerometros e três gyroscopios, do tipo massa
+                        O módulo Yawdamper Atom Y001 conta com três acelerometros e três giroscópios, do tipo massa
                         de prova microscópica. Este tipo de sensor oferece excelente precisão e estabilidade enquanto
                         evita o gasto de energia, desgaste e peso desnecessários associados a sensores de
                         massa de prova macroscópicos. Baseando-se nas leituras desses sensores, o módulo calcula o
@@ -127,9 +127,9 @@ class App extends Component {
                         avião sempre coordenado.
                     </p>
                     <p>
-                        Para realizar o cálculo do melhor angulo de compensador, o módulo utiliza o algoritmo de
+                        Para realizar este cálculo, o módulo utiliza o algoritmo de
                         controle de malha fechada PID sobre o erro de aceleração somado ao controle diferencial sobre a
-                        taxa de giro da aeronave. O algorítimo e seus ajustes serão explicados detalhadamente nos
+                        taxa de giro da aeronave. O algoritmo e seus ajustes serão explicados detalhadamente nos
                         próximos capítulos.
                     </p>
                     <br/>
@@ -139,7 +139,7 @@ class App extends Component {
                     <br/>
                     <p>
                         O ecrã de seu modulo yawdamper conta com uma bola mostrando a condição de leitura do acelerometro,
-                        e ainda dois bastões móveis, representando a condição de leitura do giroscópio e posição do compensador,
+                        e ainda dois bastões móveis, representando as condições de leitura do giroscópio e posição do compensador,
                         respectivamente.
                     </p>
                     <br/>
@@ -150,7 +150,7 @@ class App extends Component {
                     <p className="fig-subtitle">Ecrã do módulo Atom Y001</p>
                     <br/>
                     <p>
-                        Este ainda conta com indicador de modo ON-OFF, indicador de atividade (X),
+                        Este ainda inclui com indicador de modo ON-OFF, indicador de atividade (X),
                         tempo desde o ligamento (TON) e bastões laterais indicando os limites de curso dos sensores e
                         compensador, estes visíveis apenas com o módulo no modo AUTOMATICO.
                     </p>
@@ -184,6 +184,7 @@ class App extends Component {
 
                             <Element name="trim"/>
                             <h3 className="subtitle"><li>Ajuste de <em>Trim</em></li></h3>
+                            <br/>
                             <p>
                                 Pode-se ajustar a posição neutra de seu compensador de leme pela utilização das teclas + e -
                                 presentes na interface de seu módulo. A posição do compensador é indicada pela segunda
@@ -202,7 +203,7 @@ class App extends Component {
                             <p className="fig-subtitle">Tela de calibração de sensores.</p>
                             <br/>
                             <p>
-                                Para rodar a calibração, basta apertar e segurar a tecla ON-OFF por 5 segundos, largando em
+                                Para rodar a calibração, basta apertar e segurar a tecla ON-OFF por 5 segundos, soltando em
                                 seguida. A rotina de calibração deve ser feita com o avião nivelado, coordenado, e em atmosfera
                                 calma para evitar que turbulências possam interferir no processo. Caso a calibração tenha
                                 resultado insatisfatório (a bola pode terminar fora de centro), deve-se repeti-la até que o
@@ -214,8 +215,9 @@ class App extends Component {
                     <Element name="automatic"/>
                         <br/>
                         <h3 className="subtitle"><li>Modo Automático</li></h3>
+                        <br/>
                         <p>
-                            Para acessar o modo AUTOMATICO, basta pressionar brevemente e soltar a tecla ON-OFF presente na
+                            Para acessar o modo AUTOMATICO, basta pressionar brevemente a tecla ON-OFF presente na
                             interface do módulo.
                         </p>
                         <br/>
@@ -231,13 +233,12 @@ class App extends Component {
                         <p>
                             Ainda no modo AUTOMATICO, pode-se acessar as opções de ajustes de controle do módulo.
                             As opções disponíveis dependerão do modo de ajuste em que o modulo está sendo operado.
-                            Para acessar as opções de ajuste, aperte e segure a tecla ON-OFF por cinco segundos, largando
+                            Para acessar as opções, aperte e segure a tecla ON-OFF por cinco segundos, soltando
                             em seguida. Os ajustes serão explicados na próxima seção, logo após apresentarmos o algoritmo
                             de controle para melhor entendimento. Se você não esta interessado em aprender sobre o algoritmo
                             PID e só quer uma referência rápida para os ajustes, sinta-se livre para pular o proximo capítulo.
                             Recomendamos porém que a devida atenção seja dada para o entendimento do algoritmo de controle,
-                            para que possa-se extrair o melhor desempenho de seu módulo yawdamper, e consequentemente de
-                            sua aeronave.
+                            para que possa-se extrair o melhor desempenho de seu módulo yawdamper.
                         </p>
                         <br/>
 
@@ -310,16 +311,16 @@ class App extends Component {
 
                     <Element name="gain"/>
                     <h3 className="subtitle"><li>Ganho</li></h3>
-                        <br/>
-                        <p>
+                            <br/>
+                            <p>
                                 O ajuste de ganho esta sempre presente. Este pode ser acessado pelos botões + e - presentes na
                                 interface de seu módulo.
                             </p>
-                        <img className="fig" src={require("./img/gain.png")} alt="GANHO"></img>
-                        <p className="fig-subtitle">Barra indicativa de ganho.</p>
-                        <br/>
+                            <img className="fig" src={require("./img/gain.png")} alt="GANHO"></img>
+                            <p className="fig-subtitle">Barra indicativa de ganho.</p>
+                            <br/>
                             <p>
-                                Este ajuste é destinado a compensação nas condições de voo, como mudança de velocidade de
+                                Este ajuste é destinado a compensação nas mudanças das condições de voo, como mudança de velocidade de
                                 cruzeiro ou variações climáticas. Ajustes de ganho muito alto fazem com que a aeronave entre
                                 em regime oscilatório (balançando a calda, efeito "cachorro feliz") enquanto ajustes muito baixos
                                 fazem com que a aeronave fique sub-atuada, conservando erro nas curvas ou tornando a resposta
@@ -351,10 +352,13 @@ class App extends Component {
                         <br/>
                         <p>
                             O ajuste de sensibilidade é utilizado para adequar o módulo a mudanças de carga da aeronave.
-                            Este deve ser aumentado para aumentos de carga e diminuído, caso contrário. Pequenos ajustes já
-                            são suficientes para compensar o voo, dado que este ajuste tem amplo alcance, visando-se
-                            atender a maior parte das condições de voo possívelmente experimentadas pela aeronave.
+                            Este deve ser aumentado para cargas elevadas e reduzido para cargas leves. Pequenos ajustes já
+                            são suficientes para compensar mudanças, e é recomendado manter um valor que resulte em
+                            resposta satisfatória sem que a posição do compensador se torne errática.
                         </p>
+                        <img className="fig" src={require("./img/sensitivity.png")} alt="SENSIBILIDADE"></img>
+                        <p className="fig-subtitle">Barra indicativa de ganho.</p>
+                        <br/>
                         <p>
                             O ajuste de sensibilidade pode ser acessado com modo <strong>Power User desligado</strong> e
                             modo <strong>AUTOMATICO</strong>, pressionando-se e segurando a <strong>tecla ON-OFF</strong>&nbsp;
@@ -368,16 +372,16 @@ class App extends Component {
                         <p>
                             No modo <strong>Power User</strong>, o piloto tem acesso a configurações avançadas do modulo
                             yawdamper. Estas configurações só devem ser alteradas apenas por pessoal qualificado ou se
-                            você souber exatamente o que esta fazendo. Configurações extremas podem degradar o desempenho
-                            ou até instabilizar o voo.
+                            você souber exatamente o que esta fazendo. <strong>Configurações extremas podem degradar o
+                            desempenho da aeronave ou até instabilizar o voo</strong>.
                         </p>
                         <p>
                             Para acessar o modo <strong>Power User</strong>, com o módulo em modo <strong>AUTOMATICO</strong>,
-                            aperte brevemente simultaneamente a tecla <strong>(-)</strong> e a tecla <strong>(+)</strong>.
-                            A mensagem "Power User ON" deve aparecer no ecrã, confirmando que o modulo recebeu o comando.
-                            As configurações avançadas podem ser acessadas da mesma forma que a configuração de
-                            sensibilidade no modo usuário, pressionando-se e segurando a tecla ON-OFF por cinco segundos,
-                            e depois soltando-a.
+                            aperte brevemente as teclas <strong>(-)</strong> e <strong>(+)</strong>, simultaneamente.
+                            A mensagem <strong>"Power User ON"</strong> deve aparecer no ecrã, confirmando que o modulo
+                            recebeu o comando. As configurações avançadas podem ser acessadas da mesma forma que a
+                            configuração de sensibilidade no modo usuário, pressionando-se e segurando a tecla ON-OFF
+                            por cinco segundos, e depois soltando-a.
                         </p>
                     <br/>
 
@@ -386,10 +390,12 @@ class App extends Component {
                         <br/>
                         <p>
                             A frequência de corte determina o ponto de -3dB de um filtro linear em cascata de três polos.
-                            Este filtro é utilizado para tratar os dados obtidos pela leitura dos acelerometros e giroscópios,
-                            de forma a reduzir o ruído produzido pela vibração gerada pelo motor da aeronave.
+                            Este filtro é utilizado para tratar os dados obtidos pela leitura dos acelerômetros e giroscópios,
+                            de forma a reduzir o ruído de leitura produzido pela vibração gerada pelo motor da aeronave.
                         </p>
-
+                        <img className="fig" src={require("./img/cutoff.png")} alt="CUTOFF"></img>
+                        <p className="fig-subtitle">Barra indicativa de frequencia de corte.</p>
+                        <br/>
                         <p>
                             O ajuste da frequencia de corte é feito observando-se o comportamento da bola e da posição do
                             compensador enquanto o módulo atua no modo AUTOMATICO. A bola deve ter posição estável e não deve
@@ -398,8 +404,8 @@ class App extends Component {
                             do motor, reduzindo a vida útil de seu sistema yawdamper.
                         </p>
                         <p>
-                            O valor da frequencia de corte deve ser o maior possível sem que a bola ou a posição do
-                            compensador apresentem vibrações.
+                            <strong>O valor da frequencia de corte deve ser o maior possível sem que a bola ou a posição do
+                                compensador apresentem vibrações.</strong>
                         </p>
                         <br/>
 
@@ -408,8 +414,8 @@ class App extends Component {
                         <br/>
                         <p>
                             O controlador PID deve ser ajustado empiricamente seguindo-se uma rotina bem definida.
-                            A seguir explicaremos o algoritmo de ajuste do controlador, bem como a influência de cada
-                            ajuste em sua resposta.
+                            A seguir explicaremos a influência de cada ajuste em sua resposta, bem como o algoritmo de
+                            ajuste do controlador.
                         </p>
                         <br/>
                         <div>
@@ -442,13 +448,13 @@ class App extends Component {
                             Um <strong>ganho proporcional baixo</strong> faz com que o <strong>controle na posição
                             do compensador tenha curso reduzido</strong>, tornando a aeronave <strong>sub-atuada</strong>.
                             Já uma configuração de <strong>ganho proporcional alta</strong> demais faz com que a
-                            aeronave sofra <strong><em>overshoot</em></strong> em sua trajetória e se
+                            aeronave entre em <strong><em>regime oscilatório</em></strong> e se
                             torne <strong>pouco estável</strong>.
                         </p>
                         <p>
-                            Para obter melhor desempenho de sua aeronave, é desejável utilizar o <em>maior ganho
+                            <strong>Para obter melhor desempenho de sua aeronave, é desejável utilizar o <em>maior ganho
                             proporcional possível sem que a aeronave se torne instável ou apresente overshoot em
-                            curvas fechadas.</em>
+                            curvas fechadas.</em></strong>
                         </p>
                         <br/>
 
@@ -460,10 +466,10 @@ class App extends Component {
                                 O ganho integral se refere ao valor de <MathJax.Node inline>K_i</MathJax.Node>,
                                 presente na equação de controle do PID. Este ganho controla a componente
                                 integral do erro que estará presente na saída do controlador. Por
-                                exemplo, se a bola se mantém <strong>posicionada a direita do centro</strong> por um
-                                longo período de tempo, a posição do compensador se deslocará de uma quantidade&nbsp;
+                                exemplo, se a bola se mantém <strong>posicionada a direita do centro por um
+                                longo período de tempo</strong>, a posição do compensador se deslocará de uma quantidade&nbsp;
                                 <strong>proporcional ao somatório do tempo que a bola passou deslocada vezes o
-                                deslocamento durante esse tempo vezes o ganho integral para a esquerda</strong>,
+                                deslocamento durante esse tempo vezes o ganho integral</strong> para a esquerda,
                                 de maneira a corrigir a tendência da aeronave. Esta posição passa a ser a <strong>posição
                                 neutra</strong> do compensador, e as variações causadas pelos ganhos proporcional e
                                 derivativo serão dadas ao redor desta. Da mesma forma, se a aeronave apresentar
@@ -474,14 +480,13 @@ class App extends Component {
                         </MathJax.Context>
                         <p>
                             <strong>Ajustes muito baixos de ganho integral</strong> fazem com que
-                            a <strong>aeronave apresente tendências</strong> e conserve <strong>erro estático nas
-                            curvas</strong>. <strong>Ajustes muito altos do ganho integral</strong>, por outro lado, fazem com que
+                            a <strong>aeronave apresente tendências</strong> e conserve <strong>erro estático em
+                            retas</strong>. <strong>Ajustes muito altos do ganho integral</strong>, por outro lado, fazem com que
                             a aeronave apresente <strong>overshoot nas curvas</strong>.
                         </p>
                         <p>
-                           Idealmente gostaria-se de utilizar-se o <em>menor ganho integral possível sem que a aeronave
-                                apresente tendências ou erro estático em curvas
-                            </em>.
+                           <strong>Idealmente gostaria-se de utilizar-se o <em>menor ganho integral possível sem que a aeronave
+                               apresente tendências ou erro estático em curvas</em></strong>.
                         </p>
                         <br/>
 
@@ -509,22 +514,22 @@ class App extends Component {
                             da aceleração lateral da aeronave.
                         </p>
                         <p>
-                            Ajustes <strong>muito baixos do ganho derivativo</strong> fazem com que <strong>a mudança
+                            Ajustes <strong>muito baixos do ganho derivativo fazem com que a mudança
                             na posição do compensador seja lenta</strong> em relação a mudança de aceleração lateral,
                             e faz com que a <strong>aeronave perca a coordenação por um longo período de
                             tempo</strong> após a atuação do aileron e do início da guinada da aeronave.
                         </p>
                         <p>
-                            Por outro lado, ajustes <strong>muito altos do ganho derivativo</strong> tornam
-                            a <strong>posição do compensador errática</strong> e introduzem ruído no sinal
+                            Por outro lado, ajustes <strong>muito altos do ganho derivativo tornam
+                            a posição do compensador errática</strong> e introduzem ruído no sinal
                             de controle do motor, <strong>fazendo-o vibrar</strong>. Esta condição
                             é <strong>pouco desejável</strong> já que <strong>não
                             melhora o controle da aeronave</strong> e <strong>diminúi a vida útil de seu sistema</strong>.
                         </p>
                         <p>
-                            Como via de regra, é desejavel trabalhar com o <em>menor ganho derivativo que torna a
+                            <strong>Como via de regra, é desejavel trabalhar com o <em>menor ganho derivativo que torna a
                             resposta da aeronave estável e rápida o suficiente a mudanças de estado na tragetória,
-                            sem introduzir ruído (vibração e movimentação demasiada) na posição do compensador</em>.
+                            sem introduzir ruído (vibração e movimentação demasiada) na posição do compensador</em></strong>.
                         </p>
                         <br/>
 
@@ -620,9 +625,9 @@ class App extends Component {
                             ruído.
                         </p>
                         <p>
-                            Feito isso, teste o desempenho da aeronave em curvas. A resposta da aeronave deve ser
+                            Depois de ajustado, teste o desempenho da aeronave em curvas. A resposta da aeronave deve ser
                             perceptivelmente mais estável sem que resposta na entrada da curva tenha sido prejudicada (resposta muito lenta).
-                            Pode-se ainda introduzir distúrbios no sistema pelo acionamento de um dos pedais e obervar-se
+                            Pode-se ainda introduzir distúrbios no sistema pelo acionamento de um dos pedais e obervar
                             a resposta do compensador. Este deve mover-se de forma a combater a mudança de proa e manter
                             a aeronave estável.
                         </p>
@@ -661,7 +666,7 @@ class App extends Component {
                                 <li>Configurar o Gyro th de forma que o bastão do giroscópio permaneça centrado em trajetórias
                                 retas e ainda saia de centro facilmente em curvas.</li>
                                 <br/>
-                                <li>Aumentar o ganho proporciona, Kp, e realizar curvas de média inclinação até que a aeronave
+                                <li>Aumentar o ganho proporcional, Kp, e realizar curvas de média inclinação até que a aeronave
                                 comece a responder de forma levemente oscilatória.</li>
                                 <br/>
                                 <li>Aumentar o ganho derivativo , Kd, até que a aeronave deixe de apresentar resposta
@@ -669,7 +674,7 @@ class App extends Component {
                                 <br/>
                                 <li>Aumentar o ganho integral, Ki, até que a aeronave corrija a trajetória rapidamente na
                                 ocasião de mudança de regime, como mudança na potencia do motor ou mudanças de inclinação
-                                do nariz. A aeronave não deve apresentar tendências ou erro estático em curvas, mas também não
+                                do nariz. A aeronave não deve apresentar tendências ou erro estático em retas, mas também não
                                 deve apresentar overshoot na resposta a curvas fechadas.</li>
                                 <br/>
                                 <li>Caso a melhor resposta obtida nos passos anteriores ainda for instável em trajetórias
@@ -720,8 +725,9 @@ class App extends Component {
                             <li>Meu dispositivo não salva mais os valores das configurações. Como corrigir?</li>
                             <ul>
                                 <li>Pastilhas de memória apresentam vida útil limitada, contada em ciclos de escrita.
-                                Se a vida útil de sua memória chegou ao fim, é necessario realizar a troca do componente
-                                controlador. Entrar em contato com o suporte tecnico.</li>
+                                O tempo de vida deste tipo de pastilha é muito elevado, porém se a vida útil de sua
+                                memória chegou ao fim, é necessario realizar a troca do componente
+                                controlador. Entrar em contato com o suporte técnico.</li>
                             </ul>
                         </ul>
                         <br/>
@@ -729,7 +735,7 @@ class App extends Component {
                             <li>Meu módulo yawdamper liga mas o servo motor não responde. Como corrigir?</li>
                             <ul>
                                 <li>O mais provável é que haja algum rompimento no cabo de comunicação. Checar o cabeamento
-                                da aeronave. Caso for concluido que o cabeamento esta intacto, a próxima opção de maior
+                                da aeronave. Caso concluir que o cabeamento esta intacto, a próxima opção de maior
                                 probabilidade é o módulo de potência do servo motor não estar funcionando corretamente.
                                 Entrar em contato com suporte técnico para substituição.</li>
                             </ul>
