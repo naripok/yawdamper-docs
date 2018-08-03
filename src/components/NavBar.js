@@ -40,7 +40,7 @@ export default class NavbarFeatures extends React.Component {
                     {/*{ !this.state.isWideEnough && <NavbarToggler onClick = { this.onClick } />}*/}
                     {/*<Collapse isOpen = { this.state.collapse } navbar>*/}
                         <NavbarNav left>
-                            <NavItem active>
+                            <NavItem>
                                 <NavLink to="#" onClick={this.props.top}>
                                     Início
                                 </NavLink>
