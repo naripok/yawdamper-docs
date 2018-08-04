@@ -30,8 +30,24 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  /*animation: App-logo-spin infinite 20s linear;*/
   height: 80px;
+}
+
+.App-cover {
+  /*animation: App-logo-spin infinite 3s linear;*/
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 80%;
+}
+
+.App-subcover {
+  /*animation: App-logo-spin infinite 3s linear;*/
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 15ch;
 }
 
 .App-header {
@@ -43,7 +59,7 @@
 
 .App-title {
   font-size: 2.5em;
-  padding: 0px 0px 0px 0px;
+  padding: 5% 0px 5% 0px;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
 }
@@ -127,11 +143,11 @@
   margin-left: auto;
   margin-right: auto;
   display: block;
-  object-fit: fill;
+  object-fit: scale-down;
 }
 
 .fig-subtitle {
-  font-size: small;
+  font-size: 0.85em;
   text-align: center;
   text-indent: 0;
   position: relative;

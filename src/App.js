@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Table } from "mdbreact";
+import { Element, animateScroll as scroll, Events, Link } from "react-scroll";
 import MathJax from 'react-mathjax2';
 
 import Contact from "./containers/contact";
 import NavBar from "./components/NavBar";
 
-import { Table } from "mdbreact";
-import { Element, animateScroll as scroll, Events, Link } from "react-scroll";
-
-// import PID from "./components/pid";
-
+import logo from './logo2.svg';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -50,13 +47,16 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+
+                {/* NAVBAR */}
+
                 <header className="App-header">
 
                     <div>
                         <NavBar top={this.scrollToTop} bot={this.scrollToBottom}/>
                     </div>
                     <div>
-                        <img src={logo} className="App-logo" alt="logo" />
+                        <img src={logo} className="App-cover" alt="logo" />
                         <h1 className="App-title">Manual de Ajuste - Yawdamper Atom Y001</h1>
                     </div>
                 </header>
@@ -115,7 +115,7 @@ class App extends Component {
                         desempenho possível de sua aeronave.
                     </p>
                     <br/>
-                    <img className="fig" src="img/module.png" alt="YAWDAMPER ATOM Y001"></img>
+                    <img className="App-subcover" src={require('./logo2_black.svg')} alt="YAWDAMPER ATOM Y001" />
                     <p className="fig-subtitle">Yawdamper Atom Y001</p>
                     <br/>
                     <p>
@@ -145,7 +145,7 @@ class App extends Component {
                     <br/>
                     {/*<img className="fig" src={ecra} alt="ECRA"></img>*/}
 
-                    <img className="fig" src={require("./img/screen.png")} alt="ECRA"></img>
+                    <img className="fig" src={require("./img/screen.png")} alt="ECRA" />
 
                     <p className="fig-subtitle">Ecrã do módulo Atom Y001</p>
                     <br/>
@@ -166,7 +166,7 @@ class App extends Component {
                             de seu módulo.
                         </p>
                         <br/>
-                        <img className="fig" src={require("./img/interface.png")} alt="INTERFACE"></img>
+                        <img className="fig" src={require("./img/interface.png")} alt="INTERFACE" />
                         <p className="fig-subtitle">Interface do módulo Atom Y001</p>
                         <br/>
 
@@ -178,7 +178,7 @@ class App extends Component {
                                 ajustável, assim como o presente no <em>trim</em> de profundor.
                             </p>
                             <br/>
-                            <img className="fig" src={require("./img/manual.png")} alt="MANUAL"></img>
+                            <img className="fig" src={require("./img/manual.png")} alt="MANUAL" />
                             <p className="fig-subtitle">Tela de controle no modo MANUAL.</p>
                             <br/>
 
@@ -199,7 +199,7 @@ class App extends Component {
                             <p>
                                 Ainda no modo MANUAL, pode-se acessar a rotina de calibração dos sensores do módulo.
                             </p>
-                            <img className="fig" src={require("./img/calibration.png")} alt="CALIBRAÇÃO"></img>
+                            <img className="fig" src={require("./img/calibration.png")} alt="CALIBRAÇÃO" />
                             <p className="fig-subtitle">Tela de calibração de sensores.</p>
                             <br/>
                             <p>
@@ -221,7 +221,7 @@ class App extends Component {
                             interface do módulo.
                         </p>
                         <br/>
-                        <img className="fig" src={require("./img/automatic.png")} alt="AUTOMATICO"></img>
+                        <img className="fig" src={require("./img/automatic.png")} alt="AUTOMATICO" />
                         <p className="fig-subtitle">Tela de controle no modo AUTOMATICO.</p>
                         <br/>
                         <p>
@@ -316,7 +316,7 @@ class App extends Component {
                                 O ajuste de ganho esta sempre presente. Este pode ser acessado pelos botões + e - presentes na
                                 interface de seu módulo.
                             </p>
-                            <img className="fig" src={require("./img/gain.png")} alt="GANHO"></img>
+                            <img className="fig" src={require("./img/gain.png")} alt="GANHO" />
                             <p className="fig-subtitle">Barra indicativa de ganho.</p>
                             <br/>
                             <p>
@@ -356,8 +356,8 @@ class App extends Component {
                             são suficientes para compensar mudanças, e é recomendado manter um valor que resulte em
                             resposta satisfatória sem que a posição do compensador se torne errática.
                         </p>
-                        <img className="fig" src={require("./img/sensitivity.png")} alt="SENSIBILIDADE"></img>
-                        <p className="fig-subtitle">Barra indicativa de ganho.</p>
+                        <img className="fig" src={require("./img/sensitivity.png")} alt="SENSIBILIDADE" />
+                        <p className="fig-subtitle">Barra indicativa de sensibilidade.</p>
                         <br/>
                         <p>
                             O ajuste de sensibilidade pode ser acessado com modo <strong>Power User desligado</strong> e
@@ -383,7 +383,7 @@ class App extends Component {
                             configuração de sensibilidade no modo usuário, pressionando-se e segurando a tecla ON-OFF
                             por cinco segundos, e depois soltando-a.
                         </p>
-                    <br/>
+                        <br/>
 
                     <Element name="cutOff"/>
                     <h3 className="subtitle"><li>Frequência de corte - CutOff</li></h3>
@@ -393,7 +393,7 @@ class App extends Component {
                             Este filtro é utilizado para tratar os dados obtidos pela leitura dos acelerômetros e giroscópios,
                             de forma a reduzir o ruído de leitura produzido pela vibração gerada pelo motor da aeronave.
                         </p>
-                        <img className="fig" src={require("./img/cutoff.png")} alt="CUTOFF"></img>
+                        <img className="fig" src={require("./img/cutoff.png")} alt="CUTOFF" />
                         <p className="fig-subtitle">Barra indicativa de frequencia de corte.</p>
                         <br/>
                         <p>
@@ -645,6 +645,8 @@ class App extends Component {
                         <br/>
                 </Element>
 
+                {/* SETUP */}
+
                 <Element className="App-setup">
                     <Element name="routine"/>
                     <h1 className="title">Rotina de ajuste</h1>
@@ -695,6 +697,8 @@ class App extends Component {
                             </ol>
                         </div>
                 </Element>
+
+                {/* FAQ */}
 
                 <Element className="App-faq">
                     <Element name="faq"/>
@@ -750,6 +754,8 @@ class App extends Component {
                             </ul>
                         </ul>
                 </Element>
+
+                {/* SUPPORT */}
 
                 <Element name="contact"/>
                     <Contact />
