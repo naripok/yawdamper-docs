@@ -303,8 +303,7 @@ class App extends Component {
                             <li><strong>AJUSTES EXTREMOS PODEM INSTABILIZAR A AERONAVE E DIFICULTAR O CONTROLE DO PILOTO.</strong></li>
                         <br/>
                             <li><strong>NO CASO DA AERONAVE SE TORNAR INSTÁVEL, SEGURE SUA TRAJETORIA NO PEDAL, SAIA DA TELA DE
-                                CONFIGURAÇÕES UTILIZANDO A TECLA ON-OFF E AJUSTE O GANHO GERAL PARA ZERO. EM SEGUIDA, ENTRE NA TELA
-                                DE CONFIGURAÇÕES NOVAMENTE, ZERE TODOS OS GANHOS, RETORNE O GANHO GERAL PARA 50% E REPITA
+                                CONFIGURAÇÕES UTILIZANDO A TECLA ON-OFF E AJUSTE O GANHO GERAL PARA ZERO. EM SEGUIDA, REPITA
                                 A ROTINA DE CONFIGURAÇÃO E AJUSTE.
                             </strong></li>
                         <br/>
