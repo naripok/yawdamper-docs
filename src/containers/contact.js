@@ -67,7 +67,8 @@ export default class Contact extends Component {
             await this.sendMail({
                 body: JSON.stringify({
                             email: this.state.email,
-                            subject: this.state.subject,
+                            name: this.state.name,
+                            subject: "YAWDAMPER - " + this.state.subject,
                             message: this.state.body
                 })
             });
