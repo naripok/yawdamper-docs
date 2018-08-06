@@ -68,7 +68,7 @@ export default class Contact extends Component {
                 body: JSON.stringify({
                             email: this.state.email,
                             name: this.state.name,
-                            subject: "YAWDAMPER - " + this.state.subject,
+                            subject: "YAWDAMPER - " + this.state.name + " - " + this.state.subject,
                             message: this.state.body
                 })
             });
@@ -162,7 +162,7 @@ export default class Contact extends Component {
                         </form>
                     </div>
                 </div>
-                : <div>
+                : <div className="Sent">
                     Sua mensagem foi enviada com sucesso!<br/>
                     Você receberá uma resposta em breve.
                 </div>}

@@ -708,6 +708,7 @@ class App extends Component {
                             </ul>
                         </ul>
                         <br/>
+
                         <ul>
                             <li>O módulo yawdamper Atom Y001 é apropriado para a utilização em manobras acrobáticas?</li>
                             <ul>
@@ -715,6 +716,7 @@ class App extends Component {
                             </ul>
                         </ul>
                         <br/>
+
                         <ul>
                             <li>A minha posição do compensador apresenta vibrações no modo AUTOMATICO. Como corrigir?</li>
                             <ul>
@@ -722,6 +724,25 @@ class App extends Component {
                             </ul>
                         </ul>
                         <br/>
+
+                        <ul>
+                            <li>A bola não sai do centro.</li>
+                            <ul>
+                                <li>Verifique se a configuração CUTOFF, presente no modo POWER USER, não apresenta
+                                    valor próximo de zero. Recorrer ao seção de ajustes presente neste manual.</li>
+                            </ul>
+                        </ul>
+                        <br/>
+
+                        <ul>
+                            <li>O bastão indicador de giroscópio não sai do centro.</li>
+                            <ul>
+                                <li>Verifique se a configuração GYRO TH, presente no modo POWER USER, não apresenta
+                                    valor muito alto. Recorrer ao seção de ajustes presente neste manual.</li>
+                            </ul>
+                        </ul>
+                        <br/>
+
                         <ul>
                             <li>Meu dispositivo não salva mais os valores das configurações. Como corrigir?</li>
                             <ul>
@@ -732,6 +753,7 @@ class App extends Component {
                             </ul>
                         </ul>
                         <br/>
+
                         <ul>
                             <li>Meu módulo yawdamper liga mas o servo motor não responde. Como corrigir?</li>
                             <ul>
@@ -742,6 +764,7 @@ class App extends Component {
                             </ul>
                         </ul>
                         <br/>
+
                         <ul>
                             <li>O indicador de posição do compensador no ecrã do módulo se encontra estável, porém o servo
                             motor se comporta de maneira errática. Como corrigir?</li>
