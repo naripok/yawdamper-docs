@@ -260,17 +260,15 @@ class App extends Component {
                             </MathJax.Context>
                             <br/>
                         </div>
-                        <p>
-                            <MathJax.Context>
-                                <div>
-                                    Sendo <MathJax.Node inline>K_p</MathJax.Node>,&nbsp;
-                                    <MathJax.Node inline>K_i</MathJax.Node>&nbsp;e&nbsp;
-                                    <MathJax.Node inline>K_d</MathJax.Node> os ganhos associados as ações proporcional,
-                                    integral e derivativa, respectivamente, e <MathJax.Node inline>G</MathJax.Node> o ganho
-                                    geral do controlador.
-                                </div>
-                            </MathJax.Context>
-                        </p>
+                        <MathJax.Context>
+                            <div>
+                                Sendo <MathJax.Node inline>K_p</MathJax.Node>,&nbsp;
+                                <MathJax.Node inline>K_i</MathJax.Node>&nbsp;e&nbsp;
+                                <MathJax.Node inline>K_d</MathJax.Node> os ganhos associados as ações proporcional,
+                                integral e derivativa, respectivamente, e <MathJax.Node inline>G</MathJax.Node> o ganho
+                                geral do controlador.
+                            </div>
+                        </MathJax.Context>
                         <p>
                             Este pedaço de matemática aparentemente complicado quer dizer nada mais que a saída de seu
                             controlador, <strong>u(t)</strong>, será proporcional (<strong>ganho proporcional</strong>) ao
@@ -539,7 +537,7 @@ class App extends Component {
                             Utilize a tabela de referência para consulta rápida em ocasião de ajuste.
                         </p>
                         <br/>
-                        <Table bsClass="table">
+                        <Table className="table">
                             <thead className="thead-dark">
                             <tr>
                                 <th scope="col">Parâmetro (aumento)</th>

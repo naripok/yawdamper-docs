@@ -45,8 +45,8 @@ export default class NavbarFeatures extends React.Component {
                             </NavItem>
                         </NavbarNav>
 
-                        <NavbarNav right>
-                            <NavItem className="sup">
+                        <NavbarNav right className="sup">
+                            <NavItem>
                                 <NavLink to="#" onClick={this.props.bot}>Suporte</NavLink>
                             </NavItem>
                             {/*<NavItem right>*/}

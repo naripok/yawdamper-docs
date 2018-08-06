@@ -22,6 +22,10 @@
     box-sizing: border-box;
 }
 
+.Submit {
+    background: black;
+}
+
 @media only screen and (max-device-width: 480px) {
     .Contact {
         padding: 10% 5% 10% 5%;
