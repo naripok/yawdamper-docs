@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import "./contact.css";
 import { API } from "aws-amplify";
+import Recaptcha from "react-recaptcha";
 
 
 export default class Contact extends Component {
@@ -15,9 +16,27 @@ export default class Contact extends Component {
             body: "",
             subject: "",
             formSent: false,
-            isLoading: false
+            isLoading: false,
         };
+        this.recaptchaInstance = null;
     }
+
+    // manually trigger reCAPTCHA execution
+    executeCaptcha = async event => {
+        event.preventDefault();
+        this.setState({isLoading: true});
+        console.log("Captcha executed.");
+        await this.recaptchaInstance.execute();
+    };
+
+// executed once the captcha has been verified
+// can be used to post forms, redirect, etc.
+    verifyCallback = response => {
+        console.log("Captcha verified.");
+        // console.log(response);
+        // document.getElementById("contactus").submit();
+        this.handleSubmit();
+    };
 
     handleChange = event => {
         this.setState({
@@ -34,37 +53,11 @@ export default class Contact extends Component {
         );
     };
 
-    handleSubmit = async event => {
-        event.preventDefault();
-
-        this.setState({isLoading: true});
-        //
-        // fetch(config.contactus_endpoint, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         email: this.state.email,
-        //         subject: this.state.subject,
-        //         body: this.state.body
-        //     })
-        // })
-        //     .then((response) => response.json())
-        //     .then((responseJson) => {
-        //         if (responseJson.success) {
-        //             this.setState({formSent: true})
-        //         } else this.setState({formSent: false})
-        //     })
-        //     .then(this.setState({isLoading: false}))
-        //     .catch((e) => {
-        //         console.error(e);
-        //         this.setState({isLoading: false});
-        //     });
+    handleSubmit = () => {
+        // event.preventDefault();
 
         try {
-            await this.sendMail({
+            this.sendMail({
                 body: JSON.stringify({
                             email: this.state.email,
                             name: this.state.name,
@@ -73,6 +66,7 @@ export default class Contact extends Component {
                 })
             });
             this.setState({formSent: true});
+            this.setState({isLoading: false});
         } catch (e) {
             alert(e);
             this.setState({isLoading: false});
@@ -86,11 +80,6 @@ export default class Contact extends Component {
                 "Access-Control-Allow-Credentials": true
             },
             body: body,
-            // requestContext: {
-            //     identity: {
-            //         cognitoIdentityId: "USER-SUB-1234"
-            //     }
-            // }
         });
     };
 
@@ -104,9 +93,9 @@ export default class Contact extends Component {
                     <p>
                         Para informações, críticas, sugestões ou dúvidas, entrar em contato utilizando o formulário abaixo.
                     </p>
-                    <br/>
+                    {/*<br/>*/}
                     <div>
-                        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+                        <form id="contactus" onSubmit={this.executeCaptcha} onChange={this.handleChange}>
 
                             <FormGroup controlId="email" bsSize="large">
                                     <FormControl
@@ -157,9 +146,24 @@ export default class Contact extends Component {
                                 text="Submit"
                                 loadingText="Submitting..."
                                 className="Submit"
+                                // onClick={this.executeCaptcha}
                             />
 
+                            <p className="captchaText">
+                                Protected by reCAPTCHA.
+                            </p>
+
                         </form>
+
+                        <Recaptcha
+                            ref={e => this.recaptchaInstance = e}
+                            sitekey="6LdT72gUAAAAAPZO0Qz_QPhpUy3v4e1bYWkmenxB"
+                            size="invisible"
+                            verifyCallback={this.verifyCallback}
+                            badge="inline"
+                            className="captchaBadge"
+                        />
+
                     </div>
                 </div>
                 : <div className="Sent">
